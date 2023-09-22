@@ -188,12 +188,12 @@ viewAllLink.addEventListener('click', function (event) {
         viewAllContainer.style.display = 'grid';
         categoriesContainer.style.display = 'none';
         favoriteListContainer.style.display = 'none'; 
-        viewAllLink.textContent = 'Back to Categories';
+        viewAllLink.textContent = 'Tilbage til kategorier';
         displayFilmsInAll(); 
     } else {
         viewAllContainer.style.display = 'none';
         categoriesContainer.style.display = 'flex';
-        viewAllLink.textContent = 'View All';
+        viewAllLink.textContent = 'Se Alle';
         favoriteListContainer.style.display = 'flex';
     }
 });
