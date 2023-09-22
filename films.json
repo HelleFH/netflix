@@ -1,0 +1,72 @@
+[
+    {
+        "Id": 1,
+        "Title": "All Quiet on the Western Front",
+        "Description": "A classic war film depicting the harrowing experiences of young soldiers during World War I.",
+        "Image": "images/all-quiet-on-the-western-front.jpg",
+        "Category": "War"
+    },
+    {
+        "Id": 2,
+        "Title": "American Gangster",
+        "Description": "A crime drama based on the true story of a drug lord and a determined detective in 1970s Harlem.",
+        "Image": "images/american-gangster.jpg",
+        "Category": "Crime"
+    },
+    {
+        "Id": 3,
+        "Title": "Fight Club",
+        "Description": "An underground fight club spirals into chaos, exploring the dark side of consumerism and identity.",
+        "Image": "images/fight-club.jpg",
+        "Category": "Drama"
+    },
+    {
+        "Id": 4,
+        "Title": "Grease",
+        "Description": "A musical romantic comedy set in the 1950s, following the love story of Sandy and Danny.",
+        "Image": "images/grease.jpg",
+        "Category": "Musical"
+    },
+    {
+        "Id": 5,
+        "Title": "The Hunger Games",
+        "Description": "In a dystopian future, Katniss Everdeen volunteers to take her sister's place in a brutal televised fight for survival.",
+        "Image": "images/the-hunger-games.jpg",
+        "Category": "Science Fiction"
+    },
+    {
+        "Id": 6,
+        "Title": "Pride and Prejudice",
+        "Description": "Jane Austen's classic tale of love and manners in early 19th-century England.",
+        "Image": "images/pride-and-prejudice.jpg",
+        "Category": "Romance"
+    },
+    {
+        "Id": 7,
+        "Title": "Shrek 2",
+        "Description": "Shrek and Fiona visit Fiona's parents, leading to hilarious adventures in Far Far Away.",
+        "Image": "images/shrek-2.jpg",
+        "Category": "Animation"
+    },
+    {
+        "Id": 8,
+        "Title": "Straight Outta Compton",
+        "Description": "The rise and impact of the rap group N.W.A in the turbulent streets of Compton, California.",
+        "Image": "images/straight-outta-compton.jpg",
+        "Category": "Biography"
+    },
+    {
+        "Id": 9,
+        "Title": "The Two Popes",
+        "Description": "A fictionalized account of the relationship between Pope Benedict XVI and Cardinal Jorge Bergoglio (Pope Francis).",
+        "Image": "images/the-two-popes.jpg",
+        "Category": "Biography"
+    },
+    {
+        "Id": 10,
+        "Title": "The Wolf of Wall Street",
+        "Description": "The outrageous true story of Jordan Belfort's rise and fall as a stockbroker, filled with excess and corruption.",
+        "Image": "images/the-wolf-of-wall-street.jpg",
+        "Category": "Comedy"
+    }
+]
