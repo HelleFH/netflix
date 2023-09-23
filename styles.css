@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #141414;
+    color: #e5e5e5;
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 1em;
+}
+
+#wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+
+
+
+.netflix-logo {
+    max-width: 100px;
+}
+
+h3 {
+    font-size: 0.9em;
+    padding-top: 0.2em;
+    padding-bottom: 0.5em;
+
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    padding-left: 0;
+    white-space: nowrap;
+    padding-right: 5em;
+}
+
+ul li {
+    font-size: 14px;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#search-container {
+    width: 260px;
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    transition: left 0.3s ease-in-out;
+    z-index: -1;
+}
+
+#search-button {
+    color: white;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#search-input {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+#search-input.active {
+    width: 200px;
+}
+
+#search-input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    border: 1px white solid;
+    margin-left: -25px;
+    text-indent: 2.3em;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    -ms-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    transition: width 0.3s;
+
+}
+
+.search-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Add this CSS to style the search results */
+#search-results {
+    position: fixed;
+    top: 70px;
+    left: -260px;
+    width: 260px;
+    background-color: #333;
+    padding: 10px;
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+#result-row {display:flex; flex-direction: row;flex-wrap: nowrap; gap:3em;margin-top:1em;}
+.result-container {display:flex; flex-direction: column-reverse;margin-top:3em;margin-bottom:5em;}
+
+.favorites-header {
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+
+
+.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 7em;
+}
+
+.hidden {
+    display: none;
+}
+
+.favorite-list-container {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 4em;
+    gap: 5em;
+    flex-wrap: wrap;
+    padding-left: 5em;
+}
+
+.favorite-card {
+    cursor: pointer;
+    max-width: 250px;
+    min-width: 200px;
+    transition: transform 0.3s ease-in-out, z-index 0.3s;
+    flex: 1;
+    z-index: 1;
+}
+
+
+.film-container {
+    padding-left: 5em;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.film-row h2 {
+    padding-top: 3em;
+    padding-bottom: 5em;
+    color: #fff;
+    justify-self: flex-start;
+    font-size: 1.3em;
+}
+
+.film-list {
+    position: absolute;
+    margin-top: 7em;
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+}
+
+
+.film-row {
+    display: flex;
+    padding-bottom: 5em;
+    flex-direction: column;
+}
+
+
+.film-card,
+.favorite-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    max-width: 250px;
+    transition: transform 0.3s ease-in-out, z-index 0.3s;
+    flex: 1;
+    z-index: 1;
+    border-radius: 5px;
+    position: relative;
+
+
+}
+
+.film-card:hover,
+.favorite-card:hover {
+    transform: scale(1.2);
+    z-index: 9999;
+    border-radius: 5px;
+
+}
+
+.play-button,
+.favorite-button {
+    border: 2px solid white;
+    border-radius: 100%;
+    padding: 0.5em;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.film-card p,
+.play-button,
+.favorite-button,
+.favorite-card p {
+    display: none;
+    position: relative;
+    background-color: #161616;
+
+
+}
+.film-card:hover .film-card-buttons,
+.favorite-card:hover .play-button {
+    display: flex;
+    background-color: #161616;
+
+}
+
+
+
+.favorite-card:hover p,
+.film-card:hover p {
+    display: flex;
+    max-width: 100%;
+    font-size: 0.7em;
+    padding: 1em 0 1em 0;
+    background-color: #161616;
+}
+
+
+.film-card:hover div {
+    display: flex;
+    background-color: #161616;
+
+}
+
+.film-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.film-card-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+
+
+#viewAllLink {
+    white-space: nowrap;
+    ;
+}
+
+#viewAllButtons {
+    position: absolute;
+    justify-self: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+#viewAllCards .film-list {
+    display: grid;
+
+}
+
+.list-view .film-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.grid-view .film-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 5em;
+    width: 100%;
+    position: relative;
+}
+
+.grid-view .film-card {
+    position: relative;
+    transition: transform 0.3s ease-in-out, z-index 0.3s;
+    flex: 1;
+    z-index: 1;
+}
+.list-view {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5em;
+}
+
