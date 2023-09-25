@@ -100,45 +100,48 @@ if (!searchHeader) {
     resultContainer.appendChild(searchHeader); 
 }
 console.log(searchHeader); 
-  function displayFilmsByCategory() {
-    const categoriesContainer = document.getElementById('categories-container');
-    categoriesContainer.innerHTML = ''; 
-    const filmsByCategory = {};
+function displayFilmsByCategory() {
+  const categoriesContainer = document.getElementById('categories-container');
+  categoriesContainer.innerHTML = '';
+  const filmsByCategory = {};
 
-    filmsData.forEach((film) => {
-      const category = film.Category;
+  // Sort the filmsData array by category alphabetically
+  const sortedFilmsData = filmsData.slice().sort((a, b) => a.Category.localeCompare(b.Category));
 
-      if (!filmsByCategory[category]) {
-        filmsByCategory[category] = [];
-      }
+  sortedFilmsData.forEach((film) => {
+    const category = film.Category;
 
-      filmsByCategory[category].push(film);
-    });
+    if (!filmsByCategory[category]) {
+      filmsByCategory[category] = [];
+    }
 
-    for (const category in filmsByCategory) {
-      if (filmsByCategory.hasOwnProperty(category)) {
-        const filmsInCategory = filmsByCategory[category];
+    filmsByCategory[category].push(film);
+  });
 
-        const categoryHeader = document.createElement('h2');
-        categoryHeader.textContent = category;
-        const filmList = document.createElement('div');
-        filmList.classList.add('film-list');
+  for (const category in filmsByCategory) {
+    if (filmsByCategory.hasOwnProperty(category)) {
+      const filmsInCategory = filmsByCategory[category];
 
-        filmsInCategory.forEach((film) => {
-          const filmCard = createFilmCard(film);
-        
-          filmList.appendChild(filmCard);
-        });
+      const categoryHeader = document.createElement('h2');
+      categoryHeader.textContent = category;
+      const filmList = document.createElement('div');
+      filmList.classList.add('film-list');
 
-        const filmRow = document.createElement('div');
-        filmRow.classList.add('film-row');
-        filmRow.appendChild(categoryHeader);
-        filmRow.appendChild(filmList);
+      filmsInCategory.forEach((film) => {
+        const filmCard = createFilmCard(film);
 
-        categoriesContainer.appendChild(filmRow);
-      }
+        filmList.appendChild(filmCard);
+      });
+
+      const filmRow = document.createElement('div');
+      filmRow.classList.add('film-row');
+      filmRow.appendChild(categoryHeader);
+      filmRow.appendChild(filmList);
+
+      categoriesContainer.appendChild(filmRow);
     }
   }
+}
 
   function addToFavorites(filmId) {
     filmId = String(filmId);
@@ -181,10 +184,29 @@ console.log(searchHeader);
   
         favoriteListContainer.appendChild(favoriteFilmCardsContainer); // Append the container to the favorite list container
       } else {
-        favoriteListContainer.insertAdjacentHTML('beforeend', 'Der er ingen favoritter tilføjet');
+        favoriteListContainer.insertAdjacentHTML('beforeend', 'Der er ingen film på din liste');
       }
     }
   }
+  function removeFromFavorites(filmId) {
+    filmId = String(filmId);
+  
+    if (favLocalStorage.includes(filmId)) {
+      favLocalStorage = favLocalStorage.filter((id) => id !== filmId);
+  
+      localStorage.setItem('favorites', JSON.stringify(favLocalStorage));
+    }
+  }
+  
+  document.addEventListener('click', (event) => {
+    const removeFavoriteButton = event.target.closest('.remove-favorite-button');
+    if (removeFavoriteButton) {
+      event.preventDefault();
+      const filmId = removeFavoriteButton.getAttribute('data-film-id');
+      removeFromFavorites(filmId);
+      renderFavoriteList(); 
+    }
+  });
   const favoritesHeader = document.getElementById("favoritesHeader");
   const categoriesHeader = document.getElementById("categoriesHeader");
 
