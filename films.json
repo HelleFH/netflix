@@ -4,14 +4,14 @@
         "Title": "All Quiet on the Western Front",
         "Description": "A classic war film depicting the harrowing experiences of young soldiers during World War I.",
         "Image": "images/all-quiet-on-the-western-front.jpg",
-        "Category": "War"
+        "Category": "Krig"
     },
     {
         "Id": 2,
         "Title": "American Gangster",
         "Description": "A crime drama based on the true story of a drug lord and a determined detective in 1970s Harlem.",
         "Image": "images/american-gangster.jpg",
-        "Category": "Crime"
+        "Category": "Krimi"
     },
     {
         "Id": 3,
@@ -39,34 +39,65 @@
         "Title": "Pride and Prejudice",
         "Description": "Jane Austen's classic tale of love and manners in early 19th-century England.",
         "Image": "images/pride-and-prejudice.jpg",
-        "Category": "Romance"
+        "Category": "Romantik"
     },
     {
         "Id": 7,
         "Title": "Shrek 2",
         "Description": "Shrek and Fiona visit Fiona's parents, leading to hilarious adventures in Far Far Away.",
         "Image": "images/shrek-2.jpg",
-        "Category": "Animation"
+        "Category": "Animeret"
     },
     {
         "Id": 8,
         "Title": "Straight Outta Compton",
         "Description": "The rise and impact of the rap group N.W.A in the turbulent streets of Compton, California.",
         "Image": "images/straight-outta-compton.jpg",
-        "Category": "Biography"
+        "Category": "Biografi"
     },
     {
         "Id": 9,
         "Title": "The Two Popes",
         "Description": "A fictionalized account of the relationship between Pope Benedict XVI and Cardinal Jorge Bergoglio (Pope Francis).",
         "Image": "images/the-two-popes.jpg",
-        "Category": "Biography"
+        "Category": "Biografi"
     },
     {
         "Id": 10,
         "Title": "The Wolf of Wall Street",
         "Description": "The outrageous true story of Jordan Belfort's rise and fall as a stockbroker, filled with excess and corruption.",
         "Image": "images/the-wolf-of-wall-street.jpg",
-        "Category": "Comedy"
+        "Category": "Komedie"
+    },
+    {
+        "Id": 11,
+        "Title": "1917",
+        "Description": "During World War I, two British soldiers are given a seemingly impossible mission: cross enemy lines to deliver a message that could save 1,600 lives.",
+        "Image": "images/1917.jpg",
+        "Category": "Krig"
+    },
+    {
+        "Id": 12,
+        "Title": "The Irishman",
+        "Description": "A mob hitman recalls his involvement with the disappearance of Jimmy Hoffa, a powerful union leader, in this epic crime drama directed by Martin Scorsese.",
+        "Image": "images/the-irishman.jpg",
+        "Category": "Krimi"
+    },
+   
+ 
+    {
+        "Id": 15,
+        "Title": "Inception",
+        "Description": "A mind-bending science fiction thriller where a thief enters people's dreams to steal their deepest secrets.",
+        "Image": "images/inception.jpg",
+        "Category": "Science Fiction"
+    },
+    {
+        "Id": 16,
+        "Title": "To All the Boys I've Loved Before",
+        "Description": "A teenage girl's secret love letters are exposed, leading to unexpected romantic adventures.",
+        "Image": "images/to-all-the-boys.jpg",
+        "Category": "Romantik"
     }
+  
 ]
