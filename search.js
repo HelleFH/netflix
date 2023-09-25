@@ -1,12 +1,7 @@
-import service from "./data.service.js";
-import { filmCardTmpl, favoriteCardTmpl } from "./templates.js"; 
-
 const app = {};
 
 app.init = async () => {
   const filmCard = await service.getFilms();
-  const favoriteCard = await service.getFilms();
-
   let filmsData = [];
   let favLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
 
@@ -28,8 +23,6 @@ app.init = async () => {
     viewAllCards.appendChild(filmList);
   }
 
-  
-
   function createFilmCard(film) {
     // Create a DOM element from the filmCard template
     const filmCard = document.createElement('div');
@@ -37,19 +30,6 @@ app.init = async () => {
     
     return filmCard;
   }
-  function createFavoriteCard(film) {
-    // Create a DOM element from the filmCard template
-    const favoriteCard = document.createElement('div');
-    favoriteCard.classList.add('favorite-card');
-    favoriteCard.classList.add('card');
-
-
-    favoriteCard.innerHTML = favoriteCardTmpl(film);
-    
-    return favoriteCard;
-  }
-  
-
 
   const searchButton = document.getElementById("search-button");
   const searchInput = document.getElementById("search-input");
@@ -90,6 +70,7 @@ searchInput.addEventListener("input", function () {
     // Clear the search results if the search term is empty
     resultRow.innerHTML = "";
 
+    // Hide the result container
     resultContainer.style.display = "none";
   }
 });
@@ -97,7 +78,7 @@ let searchHeader = resultContainer.querySelector("h2");
 if (!searchHeader) {
     searchHeader = document.createElement("h2");
     searchHeader.textContent = "Search Results";
-    resultContainer.appendChild(searchHeader); 
+    resultContainer.appendChild(searchHeader); // Append to the container
 }
 console.log(searchHeader); 
   function displayFilmsByCategory() {
@@ -125,8 +106,10 @@ console.log(searchHeader);
         filmList.classList.add('film-list');
 
         filmsInCategory.forEach((film) => {
+          // Create a DOM element from the filmCard template
           const filmCard = createFilmCard(film);
         
+          // Append the filmCard to filmList
           filmList.appendChild(filmCard);
         });
 
@@ -156,88 +139,50 @@ console.log(searchHeader);
       event.preventDefault();
       const filmId = favoriteButton.getAttribute('data-film-id');
       addToFavorites(filmId);
-      renderFavoriteList(); 
+      renderFavoriteList(); // Call renderFavoriteList after adding to favorites
     }
   });
-// Update your event listener for clicking the "Remove" button in your JavaScript code.
-document.addEventListener('click', (event) => {
-  const favoriteButton = event.target.closest('.favorite-button');
-  if (favoriteButton) {
-    event.preventDefault();
-    const filmId = favoriteButton.getAttribute('data-film-id');
-    removeFromFavorites(filmId);
-    renderFavoriteList(); // Update the displayed favorite list
-  }
-});
-
-// Add a function to remove a film from the favorites list.
-function removeFromFavorites(filmId) {
-  filmId = String(filmId);
-
-  if (favLocalStorage.includes(filmId)) {
-    favLocalStorage = favLocalStorage.filter((id) => id !== filmId);
-    localStorage.setItem('favorites', JSON.stringify(favLocalStorage));
-  }
-}
 
   const renderFavoriteList = () => {
     const favoriteListContainer = document.querySelector('.favorite-list-container');
-  
+
     if (favoriteListContainer) {
       favoriteListContainer.innerHTML = '';
-  
-      if (favLocalStorage.length !== 0) {
-        const favoriteFilmCardsContainer = document.createElement('div');
-        favoriteFilmCardsContainer.classList.add('favorite-card-container'); // Add the class 'favorite-card-container'
-          favoriteFilmCardsContainer.classList.add('favorite-card-container'); // Add the class 'favorite-card-container'
 
+      if (favLocalStorage.length !== 0) {
         favLocalStorage.forEach((filmId) => {
           const film = filmsData.find((film) => film.Id == filmId);
           if (film) {
-            const favoriteCard = createFavoriteCard(film);
-            favoriteFilmCardsContainer.appendChild(favoriteCard);
+            favoriteListContainer.insertAdjacentHTML('beforeend', favoriteListTmpl(film));
           }
         });
-  
-        favoriteListContainer.appendChild(favoriteFilmCardsContainer); // Append the container to the favorite list container
       } else {
         favoriteListContainer.insertAdjacentHTML('beforeend', 'Der er ingen favoritter tilføjet');
       }
     }
   }
-  const favoritesHeader = document.getElementById("favoritesHeader");
-  const categoriesHeader = document.getElementById("categoriesHeader");
 
+  const viewAllLink = document.getElementById('viewAllLink');
+  viewAllLink.addEventListener('click', function (event) {
+    const viewAllContainer = document.getElementById('viewAllContainer');
+    const categoriesContainer = document.getElementById('categories-container');
+    const favoriteListContainer = document.querySelector('.favorite-list-container');
 
-viewAllLink.addEventListener("click", function (event) {
-  const viewAllContainer = document.getElementById("viewAllContainer");
-  const categoriesContainer = document.getElementById("categories-container");
-  const favoriteListContainer = document.querySelector(".favorite-list-container");
+    if (viewAllContainer.style.display === 'none') {
+      viewAllContainer.style.display = 'grid';
+      categoriesContainer.style.display = 'none';
+      favoriteListContainer.style.display = 'none';
+      viewAllLink.textContent = 'Tilbage til kategorier';
+      displayFilmsInAll();
+    } else {
+      viewAllContainer.style.display = 'none';
+      categoriesContainer.style.display = 'flex';
+      viewAllLink.textContent = 'Alle film';
+      favoriteListContainer.style.display = 'flex';
+    }
+  });
 
-  if (viewAllContainer.style.display === "none") {
-    viewAllContainer.style.display = "grid";
-    categoriesContainer.style.display = "none";
-    favoriteListContainer.style.display = "none";
-    viewAllLink.innerHTML = '<i class="fas fa-chevron-left"></i> Tilbage til kategorier';
-    displayFilmsInAll();
-
-    // Hide the "Favorites" header in the "View All" view
-    favoritesHeader.style.display = "none";
-    categoriesHeader.style.display = "none";
-
-  } else {
-    viewAllContainer.style.display = "none";
-    categoriesContainer.style.display = "grid";
-    viewAllLink.innerHTML = 'Alle film <i class="fas fa-chevron-right"></i>';
-    favoriteListContainer.style.display = "grid";
-
-    // Show the "Favorites" header when returning to the category view
-    favoritesHeader.style.display = "block";
-    categoriesHeader.style.display = "block";
-
-  }
-});
-
+  // Function to fetch and display films
   async function fetchAndDisplayFilms() {
     try {
       const response = await fetch('films.json'); 
@@ -249,8 +194,10 @@ viewAllLink.addEventListener("click", function (event) {
     }
   }
 
+  // Initial fetch and display
   fetchAndDisplayFilms();
 };
 
 
+// Initialize the app
 app.init();

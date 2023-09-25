@@ -1,5 +1,5 @@
 export const filmCardTmpl = (film) => `
-<div class="film-card">
+<div class="film-card card">
 
     <div class="film-image">
 
@@ -23,9 +23,8 @@ export const filmCardTmpl = (film) => `
 `
 ;
 
-export const favoriteListTmpl = (film) => `
+export const favoriteCardTmpl = (film) => `
 
-<div class="favorite-card">
 <div class="film-image">
 <img src="${film.Image}" alt="${film.Title}" data-id="${film.Id}">
 </div>
@@ -33,12 +32,15 @@ export const favoriteListTmpl = (film) => `
 
 
 <div class="film-details">
+<div class="film-card-buttons">
 
 <div class="play-button"><i class="fa-solid fa-play"></i></div>
+<div class="favorite-button" data-film-id="${film.Id}"><i class="fa-solid fa-minus"></i></div>
+</div>
+
 <p>${film.Description}</p>
 </div>
 
-</div>
 `;
 export const listViewButton = document.getElementById('listViewButton');
 listViewButton.addEventListener('click', function () {
