@@ -32,7 +32,7 @@ export const favoriteCardTmpl = (film) => `
 
 
 <div class="film-details">
-<div class="film-card-buttons">
+<div class=film-card-buttons">
 
 <div class="play-button"><i class="fa-solid fa-play"></i></div>
 <div class="favorite-button" data-film-id="${film.Id}"><i class="fa-solid fa-minus"></i></div>

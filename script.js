@@ -159,26 +159,6 @@ console.log(searchHeader);
       renderFavoriteList(); 
     }
   });
-// Update your event listener for clicking the "Remove" button in your JavaScript code.
-document.addEventListener('click', (event) => {
-  const favoriteButton = event.target.closest('.favorite-button');
-  if (favoriteButton) {
-    event.preventDefault();
-    const filmId = favoriteButton.getAttribute('data-film-id');
-    removeFromFavorites(filmId);
-    renderFavoriteList(); // Update the displayed favorite list
-  }
-});
-
-// Add a function to remove a film from the favorites list.
-function removeFromFavorites(filmId) {
-  filmId = String(filmId);
-
-  if (favLocalStorage.includes(filmId)) {
-    favLocalStorage = favLocalStorage.filter((id) => id !== filmId);
-    localStorage.setItem('favorites', JSON.stringify(favLocalStorage));
-  }
-}
 
   const renderFavoriteList = () => {
     const favoriteListContainer = document.querySelector('.favorite-list-container');
