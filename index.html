@@ -8,11 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix Clone</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="search.js" defer></script>
 
-
-
+    <script type="module" src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -21,63 +18,72 @@
 
 <body>
     <div id="wrapper">
-    <header>
-        <nav>
-            <ul>
-                <li class="netflix-logo"> <img src="images/logo.png"></li>
-                <li>Start</li>
-                <li>Serier</li>
-                <li>Film</li>
-                <li>Nyt og populært</li>
-                <li>Min liste</li>
-                <li>Gennemse efter sprog</li>
-                <li class="search-container">
-                    <div class="search-controls">
-                        <div class="search-button" id="search-button"><i class="fas fa-search fa-lg"></i></i></div>
-                        <input type="text" id="search-input" placeholder="Søg efter titel" class="hidden">
-                    </div>
-                    <div id="search-results">
+        <header>
+            <nav>
+                <ul>
+                    <li class="netflix-logo"><a href="index.html"> <img src="images/logo.png"></a></li>
+                    <li>Start</li>
+                    <li>Serier</li>
+                    <li>Film</li>
+                    <li>Nyt og populært</li>
+                    <li>Min liste</li>
+                    <li>Gennemse efter sprog</li>
+                    <li class="search-container">
+                        <div class="search-controls">
+                            <div class="search-button" id="search-button"><i class="fas fa-search fa-lg"></i></i></div>
+                            <input type="text" id="search-input" placeholder="Søg efter titel" class="hidden">
+                        </div>
+
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <main>
+            <div id="page-content">
+
+
+                <div class="result-container" id="resultContainer" style="display:none;">
+                    <h2>Søgeresultater</h2>
+
+                    <div id="result-row">
                         <!-- Search results will be displayed here -->
                     </div>
-                </li>
-            </ul>
-        </nav>
+                </div>
 
-    </header>
+                <div class="favorites-container">
+                    <h2 id="favoritesHeader" class="favorites-header hide-while-searching hide-in-view-all">Min liste</h2>
+                    <div class="favorite-list-container" class="film-container"></div>
+                </div>
 
-    <main>
-        <div class="favrites-container">
-            <h2 class="favorites-header hide-while-searching">Min liste</h2>
-            <div class="favorite-list-container" class="film-container"></div>
-        </div>
+                <div> <a class="viewalllink" href="#" id="viewAllLink" class="hide-while-searching">Alle film
+                        <i class="fa-solid fa-chevron-right"></i></a></div>
+                <h2 id="categoriesHeader" class="categories-header">Genrer</h2>
+                
+                <div class="film-container" id="categories-container"></div>
 
+                <div class="film-container" id="viewAllContainer" style="display:none;">
 
-        <div class="viewalllink"> <a href="#" id="viewAllLink" class="hide-while-searching">Se Alle <i class="fa-solid fa-chevron-right"></i></a></div>
+                    <div id="viewAllButtons">
+                        <div id="listViewButton" class="hide-while-searching"><i class="fas fa-th-list fa-lg"></i>
+                        </div>
+                        <div id="gridViewButton" class="hide-while-searching "><i class="fas fa-th fa-lg"></i> </div>
+                    </div>
 
-        <div class="film-container" id="categories-container"></div>
-
-
-        <div class="film-container" id="viewAllContainer" style="display:none;">
-
-            <div id="viewAllButtons">
-                <div id="listViewButton" class="hide-while-searching"><i class="fas fa-th-list fa-lg"></i> </div>
-                <div id="gridViewButton" class="hide-while-searching "><i class="fas fa-th fa-lg"></i> </div>
+                    <div id="viewAllCards">
+                    </div>
+                </div>
             </div>
+        </main>
 
-            <div id="viewAllCards">
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <!-- Netflix footer -->
-    </footer>
-
-    <script type="module" src="script.js"></script>
-    <script type="module" src="favorites.js"></script>
+        <footer>
+            <!-- Netflix footer -->
+        </footer>
 
 
-</div>
+
+    </div>
 </body>
 
 </html>
