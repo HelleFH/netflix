@@ -73,7 +73,7 @@ searchInput.addEventListener("input", function () {
   if (/[\w\d]/.test(searchTerm)) {
     resultRow.innerHTML = "";
 
-    resultContainer.style.display = "block";
+    resultContainer.style.display = "flex";
 
     // Filter films based on the search query
     const filteredFilms = filmsData.filter((film) => {
