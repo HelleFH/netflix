@@ -19,49 +19,90 @@
 <body>
     <div id="wrapper">
         <header>
-            <nav>
-                <ul>
-                    <li class="netflix-logo"><a href="index.html"> <img src="images/logo.png"></a></li>
-                    <li>Start</li>
-                    <li>Serier</li>
-                    <li>Film</li>
-                    <li>Nyt og populært</li>
-                    <li>Min liste</li>
-                    <li>Gennemse efter sprog</li>
-                    <li class="search-container">
-                        <div class="search-controls">
-                            <div class="search-button" id="search-button"><i class="fas fa-search fa-lg"></i></i></div>
-                            <input type="text" id="search-input" placeholder="Søg efter titel" class="hidden">
-                        </div>
 
-                    </li>
+            <nav>
+
+
+
+                <div class="search-container">
+                    <div class="search-button" id="search-button">
+                        <i class="fas fa-search fa-lg"></i>
+                    </div>
+                    <input type="text" id="search-input" placeholder="Søg efter titel" class="hidden">
+                </div>
+                <a class="netflix-logo-mobile" href="index.html" class="active"> <img src="images/logo.png"></a>
+
+                <ul class="topnav" id="myTopnav">
+                    <a class="netflix-logo" href="index.html" class="active"> <img src="images/logo.png"></a>
+                   
+                    <a href="#">Start</a>
+                   <a href="#">Serier</a>
+                   <a href="#">Film</a>
+                   <a href="#">Min liste</a>
+                   <a href="#">Gennemse efter sprog</a>
+                   
                 </ul>
+                <a href="javascript:void(0);" class="icon" onclick="toggleMobileNav()">
+                    <i id="menuIcon" class="fa fa-bars"></i>
+                </a>
             </nav>
 
         </header>
+        <script>
+ 
 
+function toggleMobileNav() {
+    var x = document.getElementById("myTopnav");
+    var menuIcon = document.getElementById("menuIcon");
+
+    if (x.className === "topnav") {
+        x.className += " responsive";
+        menuIcon.classList.remove("fa-bars"); // Remove hamburger icon
+        menuIcon.classList.add("fa-times"); // Add X icon
+    } else {
+        x.className = "topnav";
+        menuIcon.classList.remove("fa-times"); // Remove X icon
+        menuIcon.classList.add("fa-bars"); // Add hamburger icon
+    }
+}
+
+// Get all film elements
+
+
+
+
+        </script>
         <main>
+
             <div id="page-content">
 
-
                 <div class="result-container" id="resultContainer" style="display:none;">
+
                     <h2>Søgeresultater</h2>
 
                     <div id="result-row">
                         <!-- Search results will be displayed here -->
                     </div>
+
                 </div>
 
                 <div class="favorites-container">
-                    <h2 id="favoritesHeader" class="favorites-header hide-while-searching hide-in-view-all">Min liste</h2>
-                    <div class="favorite-list-container" class="film-container"></div>
+                    <h1 id="favoritesHeader" class="favorites-header hide-while-searching hide-in-view-all">Min liste
+                    </h1>
+                    <div class="favorite-list-container" class="film-container">
+                    </div>
                 </div>
 
-                <div> <a class="viewalllink" href="#" id="viewAllLink" class="hide-while-searching">Alle film
-                        <i class="fa-solid fa-chevron-right"></i></a></div>
-                <h2 id="categoriesHeader" class="categories-header">Genrer</h2>
+
+
+                <h1 id="categoriesHeader" class="categories-header">Genrer</h1>
+
+                 <a class="viewalllink" href="#" id="viewAllLink" class="hide-while-searching">Vis alle film
+                        <i class="fa-solid fa-chevron-right"></i></a>
                 
-                <div class="film-container" id="categories-container"></div>
+
+                <div class="film-container" id="categories-container">
+                </div>
 
                 <div class="film-container" id="viewAllContainer" style="display:none;">
 
@@ -78,8 +119,9 @@
         </main>
 
         <footer>
-            <!-- Netflix footer -->
-        </footer>
+<script>
+ 
+    </script>    </footer>
 
 
 

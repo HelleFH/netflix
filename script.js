@@ -55,17 +55,20 @@ app.init = async () => {
   const searchInput = document.getElementById("search-input");
   const resultRow = document.getElementById("result-row");
 
-
   searchButton.addEventListener("click", function () {
     // Toggle the visibility of the search input
     searchInput.classList.toggle("hidden");
-
+  
     // If the search input is now visible, focus on it
     if (!searchInput.classList.contains("hidden")) {
       searchInput.focus();
+    } else {
+      // If the search input is hidden, clear its value
+      searchInput.value = "";
+      // Remove the "active" class from the result container to hide search results
+      resultContainer.classList.remove("active");
     }
   });
-
 
 searchInput.addEventListener("input", function () {
   const searchTerm = searchInput.value.trim().toLowerCase();
@@ -134,7 +137,7 @@ function displayFilmsByCategory() {
       });
 
       const filmRow = document.createElement('div');
-      filmRow.classList.add('film-row');
+      filmRow.classList.add('category-row');
       filmRow.appendChild(categoryHeader);
       filmRow.appendChild(filmList);
 
@@ -220,7 +223,8 @@ viewAllLink.addEventListener("click", function (event) {
     viewAllContainer.style.display = "grid";
     categoriesContainer.style.display = "none";
     favoriteListContainer.style.display = "none";
-    viewAllLink.innerHTML = '<i class="fas fa-chevron-left"></i> Tilbage til kategorier';
+    viewAllLink.innerHTML = '<i id="viewallLinkReturn" class="fas fa-chevron-left" style="margin-top:8em"></i> Tilbage til kategorier';
+   
     displayFilmsInAll();
 
     // Hide the "Favorites" header in the "View All" view
@@ -250,6 +254,8 @@ viewAllLink.addEventListener("click", function (event) {
       console.error('Error fetching films:', error);
     }
   }
+
+  
 
   fetchAndDisplayFilms();
 };
