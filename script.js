@@ -218,12 +218,14 @@ viewAllLink.addEventListener("click", function (event) {
   const viewAllContainer = document.getElementById("viewAllContainer");
   const categoriesContainer = document.getElementById("categories-container");
   const favoriteListContainer = document.querySelector(".favorite-list-container");
+  const rightChevron = document.querySelector (".fa-chevron-right")
 
   if (viewAllContainer.style.display === "none") {
     viewAllContainer.style.display = "grid";
     categoriesContainer.style.display = "none";
     favoriteListContainer.style.display = "none";
-    viewAllLink.innerHTML = '<i id="viewallLinkReturn" class="fas fa-chevron-left" style="margin-top:8em"></i> Tilbage til kategorier';
+    rightChevron.style.display = "none";
+    viewAllLink.innerHTML = '<div id="viewallLinkReturn" ><i class="fas fa-chevron-left" ></i> Tilbage til kategorier</div>';
    
     displayFilmsInAll();
 

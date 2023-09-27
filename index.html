@@ -34,13 +34,13 @@
 
                 <ul class="topnav" id="myTopnav">
                     <a class="netflix-logo" href="index.html" class="active"> <img src="images/logo.png"></a>
-                   
+
                     <a href="#">Start</a>
-                   <a href="#">Serier</a>
-                   <a href="#">Film</a>
-                   <a href="#">Min liste</a>
-                   <a href="#">Gennemse efter sprog</a>
-                   
+                    <a href="#">Serier</a>
+                    <a href="#">Film</a>
+                    <a href="#">Min liste</a>
+                    <a href="#">Gennemse efter sprog</a>
+
                 </ul>
                 <a href="javascript:void(0);" class="icon" onclick="toggleMobileNav()">
                     <i id="menuIcon" class="fa fa-bars"></i>
@@ -48,30 +48,7 @@
             </nav>
 
         </header>
-        <script>
- 
 
-function toggleMobileNav() {
-    var x = document.getElementById("myTopnav");
-    var menuIcon = document.getElementById("menuIcon");
-
-    if (x.className === "topnav") {
-        x.className += " responsive";
-        menuIcon.classList.remove("fa-bars"); // Remove hamburger icon
-        menuIcon.classList.add("fa-times"); // Add X icon
-    } else {
-        x.className = "topnav";
-        menuIcon.classList.remove("fa-times"); // Remove X icon
-        menuIcon.classList.add("fa-bars"); // Add hamburger icon
-    }
-}
-
-// Get all film elements
-
-
-
-
-        </script>
         <main>
 
             <div id="page-content">
@@ -97,9 +74,11 @@ function toggleMobileNav() {
 
                 <h1 id="categoriesHeader" class="categories-header">Genrer</h1>
 
-                 <a class="viewalllink" href="#" id="viewAllLink" class="hide-while-searching">Vis alle film
-                        <i class="fa-solid fa-chevron-right"></i></a>
-                
+                <div class="viewAllLink-container"><a class="viewalllink" href="#" id="viewAllLink"
+                        class="hide-while-searching">Vis alle film
+                    </a><i class="fa-solid fa-chevron-right"></i>
+                </div>
+
 
                 <div class="film-container" id="categories-container">
                 </div>
@@ -119,9 +98,37 @@ function toggleMobileNav() {
         </main>
 
         <footer>
-<script>
- 
-    </script>    </footer>
+            <script>
+
+
+                function toggleMobileNav() {
+                    var x = document.getElementById("myTopnav");
+                    var menuIcon = document.getElementById("menuIcon");
+                    var listItem = document.querySelectorAll(".topnav.responsive")
+                    listItem.innerHTML += '<i class="fa-solid fa-chevron-right"></i>';
+
+
+                    if (x.className === "topnav") {
+                        x.className += " responsive";
+                        menuIcon.classList.remove("fa-bars"); // Remove hamburger icon
+                        menuIcon.classList.add("fa-times"); // Add X icon
+
+                    } else {
+                        x.className = "topnav";
+                        menuIcon.classList.remove("fa-times"); // Remove X icon
+                        menuIcon.classList.add("fa-bars"); // Add hamburger icon
+
+                    }
+                }
+
+
+
+
+
+
+
+            </script>
+        </footer>
 
 
 
