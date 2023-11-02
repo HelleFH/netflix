@@ -1,0 +1,54 @@
+<head>
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+
+            <nav>
+
+
+
+                <div class="search-container">
+                    <div class="search-button" id="search-button">
+                        <i class="fas fa-search fa-lg"></i>
+                    </div>
+                    <input type="text" id="search-input" placeholder="Søg efter titel" class="hidden">
+                </div>
+                <a class="netflix-logo-mobile" href="index.html" class="active"> <img src="images/logo.png"></a>
+
+                <ul class="topnav" id="myTopnav">
+                    <a class="netflix-logo" href="index.html" class="active"> <img src="images/logo.png"></a>
+
+                    <a href="#">Start</a>
+                    <a href="#">Serier</a>
+                    <a href="#">Film</a>
+                    <a href="myList.html">Min liste</a>
+                    <a href="#">Gennemse efter sprog</a>
+
+                </ul>
+                <a href="javascript:void(0);" class="icon" onclick="toggleMobileNav()">
+                    <i id="menuIcon" class="fa fa-bars"></i>
+                </a>
+            </nav>
+
+        </header>
+
+        <main>
+    <div id="favorites-container"></div>
+    <script type="module" src="favorites.js"></script>
+    </main>
+    </main>
+</body>
+</html>

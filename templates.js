@@ -1,62 +1,36 @@
+// templates.js
 export const filmCardTmpl = (film) => `
 <div class="film-card card">
-
-    <div class="film-image">
-
-        <img src="${film.Image}" alt="${film.Title}" data-id="${film.Id}">
+    <div class="film-image-container">
+        <img src="${film.Image}" class="film-image" alt="${film.Title}" data-id="${film.Id}">
     </div>
-
-    <h3>${film.Title}</h3>
-
-
     <div class="film-details">
-
-    <div class="film-card-buttons">
+    <h3>${film.Title}</h3>    
+    <h3 class="film-release-year">${film.ReleaseYear}</h3>
+        <div class="film-card-buttons">
         <div class="play-button"><i class="fa-solid fa-play fa-sm"></i></div>
-        <div class="favorite-button" data-film-id="${film.Id}"><i class="fa-solid fa-plus fa-sm"></i></div>
+        <button class="favorite-button" data-id="${film.Id}" data-state="unfavorited">
+        <i class="fas fa-plus"></i>
+        </button>
+        <button class="info-button" data-id="${film.Id}">
+        <i class="fas fa-info-circle"></i>
+        </button>
+        
+        </div>
+        <p class="film-description" >${film.Description}</p>
     </div>
-
-        <p>${film.Description}</p>
-
-    </div>
 </div>
-`
-;
-
-export const favoriteCardTmpl = (film) => `
-
-<div class="film-image">
-<img src="${film.Image}" alt="${film.Title}" data-id="${film.Id}">
-</div>
-<h3>${film.Title}</h3>
-
-
-<div class="film-details">
-<div class="film-card-buttons">
-
-<div class="play-button"><i class="fa-solid fa-play fa-sm"></i></div>
-<div class="remove-favorite-button" data-film-id="${film.Id}"><i class="fa-solid fa-minus fa-sm"></i></div>
-</div>
-
-<p>${film.Description}</p>
-</div>
-
 `;
-export const listViewButton = document.getElementById('listViewButton');
-listViewButton.addEventListener('click', function () {
-    listViewButton.classList.add('view-active');
-    gridViewButton.classList.remove('view-active');
-    const viewAllCards = document.getElementById('viewAllCards');
-    viewAllCards.classList.add('list-view');
-    viewAllCards.classList.remove('grid-view');
-});
 
+export const modalTmpl = (film) => `
+<div id="film-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal-button">&times;</span>
+    <img src="${film.Image}" alt="${film.Title}">
+    <h3>${film.Title}</h3>
+    <h3 class="film-release-year">${film.ReleaseYear}</h3>
+    <p class="film-description">${film.Description}</p>
+  </div>
+</div>
+`;
 
-export const gridViewButton = document.getElementById('gridViewButton');
-gridViewButton.addEventListener('click', function () {
-    gridViewButton.classList.add('view-active');
-    listViewButton.classList.remove('view-active');
-    const viewAllCards = document.getElementById('viewAllCards');
-    viewAllCards.classList.remove('list-view');
-    viewAllCards.classList.add('grid-view');
-});

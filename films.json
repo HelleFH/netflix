@@ -3,101 +3,112 @@
         "Id": 1,
         "Title": "All Quiet on the Western Front",
         "Description": "A classic war film depicting the harrowing experiences of young soldiers during World War I.",
-        "Image": "images/all-quiet-on-the-western-front.jpg",
-        "Category": "Krig"
+        "Image": "./images/all-quiet-on-the-western-front.jpg",
+        "Category": "Krig",
+        "ReleaseYear": 1930
     },
     {
         "Id": 2,
         "Title": "American Gangster",
         "Description": "A crime drama based on the true story of a drug lord and a determined detective in 1970s Harlem.",
-        "Image": "images/american-gangster.jpg",
-        "Category": "Krimi"
+        "Image": "../images/american-gangster.jpg",
+        "Category": "Krimi",
+        "ReleaseYear": 2007
     },
     {
         "Id": 3,
         "Title": "Fight Club",
         "Description": "An underground fight club spirals into chaos, exploring the dark side of consumerism and identity.",
-        "Image": "images/fight-club.jpg",
-        "Category": "Drama"
+        "Image": "/images/fight-club.jpg",
+        "Category": "Drama",
+        "ReleaseYear": 1999
     },
     {
         "Id": 4,
         "Title": "Grease",
         "Description": "A musical romantic comedy set in the 1950s, following the love story of Sandy and Danny.",
         "Image": "images/grease.jpg",
-        "Category": "Musical"
+        "Category": "Musical",
+        "ReleaseYear": 1978
     },
     {
         "Id": 5,
         "Title": "The Hunger Games",
         "Description": "In a dystopian future, Katniss Everdeen volunteers to take her sister's place in a brutal televised fight for survival.",
         "Image": "images/the-hunger-games.jpg",
-        "Category": "Science Fiction"
+        "Category": "Science Fiction",
+        "ReleaseYear": 2012
     },
     {
         "Id": 6,
         "Title": "Pride and Prejudice",
         "Description": "Jane Austen's classic tale of love and manners in early 19th-century England.",
         "Image": "images/pride-and-prejudice.jpg",
-        "Category": "Romantik"
+        "Category": "Romantik",
+        "ReleaseYear": 2005
     },
     {
         "Id": 7,
         "Title": "Shrek 2",
         "Description": "Shrek and Fiona visit Fiona's parents, leading to hilarious adventures in Far Far Away.",
         "Image": "images/shrek-2.jpg",
-        "Category": "Animeret"
+        "Category": "Animeret",
+        "ReleaseYear": 2004
     },
     {
         "Id": 8,
         "Title": "Straight Outta Compton",
         "Description": "The rise and impact of the rap group N.W.A in the turbulent streets of Compton, California.",
         "Image": "images/straight-outta-compton.jpg",
-        "Category": "Biografi"
+        "Category": "Biografi",
+        "ReleaseYear": 2015
     },
     {
         "Id": 9,
         "Title": "The Two Popes",
         "Description": "A fictionalized account of the relationship between Pope Benedict XVI and Cardinal Jorge Bergoglio (Pope Francis).",
         "Image": "images/the-two-popes.jpg",
-        "Category": "Biografi"
+        "Category": "Biografi",
+        "ReleaseYear": 2019
     },
     {
         "Id": 10,
         "Title": "The Wolf of Wall Street",
         "Description": "The outrageous true story of Jordan Belfort's rise and fall as a stockbroker, filled with excess and corruption.",
         "Image": "images/the-wolf-of-wall-street.jpg",
-        "Category": "Komedie"
+        "Category": "Komedie",
+        "ReleaseYear": 2013
     },
     {
         "Id": 11,
         "Title": "1917",
         "Description": "During World War I, two British soldiers are given a seemingly impossible mission: cross enemy lines to deliver a message that could save 1,600 lives.",
         "Image": "images/1917.jpg",
-        "Category": "Krig"
+        "Category": "Krig",
+        "ReleaseYear": 2019
     },
     {
         "Id": 12,
         "Title": "The Irishman",
         "Description": "A mob hitman recalls his involvement with the disappearance of Jimmy Hoffa, a powerful union leader, in this epic crime drama directed by Martin Scorsese.",
         "Image": "images/the-irishman.jpg",
-        "Category": "Krimi"
+        "Category": "Krimi",
+        "ReleaseYear": 2019
     },
-   
- 
     {
         "Id": 15,
         "Title": "Inception",
         "Description": "A mind-bending science fiction thriller where a thief enters people's dreams to steal their deepest secrets.",
         "Image": "images/inception.jpg",
-        "Category": "Science Fiction"
+        "Category": "Science Fiction",
+        "ReleaseYear": 2010
     },
     {
         "Id": 16,
         "Title": "To All the Boys I've Loved Before",
         "Description": "A teenage girl's secret love letters are exposed, leading to unexpected romantic adventures.",
         "Image": "images/to-all-the-boys.jpg",
-        "Category": "Romantik"
+        "Category": "Romantik",
+        "ReleaseYear": 2018
     }
-  
 ]

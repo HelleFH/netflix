@@ -1,4 +1,3 @@
-/* Import Google Fonts and define font face */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 @font-face {
@@ -9,31 +8,35 @@
         url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff) format('woff');
 }
 
-/* Reset styles */
 * {
     margin: 0;
     box-sizing: border-box;
     background-color: #141414;
 }
 
-/* Typography and general styles */
 body {
     color: #e5e5e5;
     font-family: 'Netflix Sans', sans-serif;
     font-size: 1em;
 }
 
+h2 {
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 400;
+}
+
 .icon {
     display: none;
 }
 
-/* Links */
 a {
     color: inherit;
     text-decoration: none;
 }
 
-/* Page wrapper */
 #wrapper {
     max-width: 1440px;
     margin: 0 auto;
@@ -44,14 +47,12 @@ a {
     padding-right: 3%;
 }
 
-/* Images */
 img {
     width: 100%;
     display: block;
     height: 100%;
 }
 
-/* Header styles */
 nav {
     display: flex;
     flex-direction: row-reverse;
@@ -69,11 +70,9 @@ nav {
     gap: 3em;
 }
 
-
-.topnav a:hover {
+a:hover {
     color: #b3b3b3;
 }
-
 
 .netflix-logo {
     max-width: 100px;
@@ -83,7 +82,18 @@ nav {
     display: none;
 }
 
-/* Search container */
+#favorites-container {
+    display: grid;
+    grid-auto-rows: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    flex-wrap: wrap;
+    gap: 0.7em;
+    margin-top: 1em;
+    position: relative;
+}
+
+
+
 .search-container {
     display: flex;
     align-items: center;
@@ -102,21 +112,17 @@ nav {
 #search-button {
     color: white;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 9998;
+}
+
+#search-input.active {
+    white-space: nowrap;
+    z-index: 9998;
 }
 
 #search-input {
     width: 0;
     overflow: hidden;
-}
-
-#search-input.active {
-    white-space: nowrap;
-    z-index: 9999;
-
-}
-
-#search-input {
     min-width: 145px;
     height: 30px;
     background-color: transparent;
@@ -132,21 +138,19 @@ nav {
     -ms-transition: width 0.3s;
     -o-transition: width 0.3s;
     transition: width 0.3s;
-    z-index: 9998;
+    z-index: 9997;
 }
 
-/* Search controls */
 .search-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-/* Page Content styles */
 #result-row {
     display: grid;
     grid-auto-rows: 200px;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
     flex-wrap: wrap;
     gap: 0.7em;
     margin-top: 1em;
@@ -164,51 +168,74 @@ nav {
     justify-self: center;
 }
 
-/* Favorites section */
-.favorite-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 150px;
-    gap: .7em;
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.favorite-list-container {
-    margin-bottom: 4.5em;
-    max-width: 100%;
+.index-header-container h1 {
+    line-height: 28px;
 }
 
-.favorites-header {
-    padding-bottom: 1em;
-    padding-top: 1em;
+.index-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    width: 100%;
 }
 
-/* Categories section */
-.category-row h2 {
+.categories-header-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: flex-end;
+    width:100%;
+}
+#categoriesHeader {line-height: 1em;}
+#categoryDropdown {
+    width: fit-content;
+    color: white;
+    font-weight: bold;
+    padding: 0.3em;
+    font-size: 0.8em;
+}
+
+#categoryDropdown option {
+    border-radius: 0px;
+}
+
+#categoryDropdown select {
+    border-radius: 0px;
+
+}
+
+.category-row h3 {
 
     color: #fff;
     font-size: 1.3em;
     padding-bottom: 0.5em;
 }
-
+.viewAllLink-container {margin-left:auto;}
 .category-row {
     display: grid;
-    flex-direction: column;
     grid-template-rows: 1fr 250px;
 
 }
 
-/* Active state */
-.active {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 7em;
-}
-
 .hidden {
     display: none;
+    transition: opacity 200ms, display 200ms;
+
 }
 
-/* Film list */
 .film-list {
     display: flex;
     flex-direction: row;
@@ -216,17 +243,18 @@ nav {
     flex-wrap: wrap;
 }
 
-/* Film card and favorite card styles */
 .card {
     display: grid;
-    flex-direction: column;
     cursor: pointer;
     transition: transform 0.3s ease-in-out, z-index 0.3s;
     border-radius: 5px;
-    min-width: 150px;
+    min-width: 175px;
     max-width: 250px;
-    z-index: 3;
     position: relative;
+}
+
+.card img {
+    border-radius: 4px;
 }
 
 .card h3 {
@@ -237,12 +265,55 @@ nav {
 .card:hover img {
     border-radius: 5px 5px 0 0;
 }
+.modal {
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
 
-/* Hover effect */
+.modal-content {
+    display:flex;
+    flex-direction: column;
+    gap:1em;
+    padding:1em 1em 2em 1em;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 9999;
+    background-color: #212121;
+top:100px;    
+border-radius:10px;
+margin-left:0.3em; margin-right:0.3em;
+}
+.modal-content * {    background-color: #212121;
+}
+.modal-content img {padding-bottom:1em;}
+.close {place-self: flex-end;}
+
 .card:hover {
     transform: scale(1.2) !important;
-    z-index: 996;
+    z-index: 9997;
     position: relative;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition-delay: 0.3s;
 }
 
 .card:hover * {
@@ -257,13 +328,11 @@ nav {
     background-color: #212121;
     border-radius: 0 0 5px 5px;
     position: relative;
+
 }
 
-.film-details:hover {
-    display: flex;
-}
 
-/* Card buttons */
+
 .film-card-buttons {
     display: flex;
     flex-direction: row;
@@ -274,6 +343,7 @@ nav {
 .play-button,
 .favorite-button,
 .remove-favorite-button {
+    color: white;
     border: 2px solid white;
     border-radius: 100%;
     padding: 0.5em;
@@ -286,7 +356,6 @@ nav {
 
 .play-button .fa-play {
     color: black;
-    background-color: white !important;
 }
 
 .play-button {
@@ -295,8 +364,7 @@ nav {
     align-items: center;
 }
 
-.card:hover p {
-    display: flex;
+.card p {
     font-size: 0.7em;
     line-height: 1.5em;
     padding-bottom: 1.5em;
@@ -305,39 +373,23 @@ nav {
 
 .card:hover div {
     display: flex;
-}
-
-/* View all link and buttons */
-#viewAllLink {
-    white-space: nowrap;
-
-}
-
-.viewAllLink-container {
-    border-bottom: 2px solid white;
-    width: fit-content;
-    padding-top: 0.5em;
-    padding-left: 0.1em;
-    position: relative;
-    display: flex;
-    top: 0;
-    margin-bottom: 2.5em;
+    z-index: 9998;
 }
 
 #viewAllButtons {
-    position: absolute;
+    position: relative;
     justify-self: center;
     cursor: pointer;
     display: flex;
     flex-direction: row;
     gap: 1em;
+    margin-bottom: 1em;
 }
 
 #viewAllLink.active .hide-in-view-all {
     display: none;
 }
 
-/* View modes */
 #viewAllCards .film-list {
     display: grid;
     grid-auto-rows: 200px;
@@ -363,9 +415,7 @@ nav {
 }
 
 .grid-view .film-card {
-    position: absolute;
     transition: transform 0.3s ease-in-out, z-index 0.3s;
-    flex: 1;
 }
 
 .list-view {
@@ -375,18 +425,30 @@ nav {
 }
 
 @media (max-width: 767px) {
-    /* Responsive styles for smaller screens */
 
+    .topnav {display:none;}
     #wrapper {
         max-width: 600px;
     }
 
-    /* Styles for mobile devices */
+    .film-details:hover {
+        display: none;
+    }
 
     .card p,
     .film-card-buttons,
     .card h3 {
         background-color: #212121;
+    }
+
+    .card:hover div {
+        display: none;
+        z-index: 9998;
+    }
+.modal-content .film-details {display:flex; flex-direction:column;gap:1em;}
+
+    .card h3 {
+        font-size: 0.7em;
     }
 
     .card p {
@@ -404,25 +466,13 @@ nav {
         background-color: transparent;
     }
 
-    .favorite-card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .favorite-list-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     .category-row {
         grid-template-rows: auto;
+        padding-top:3em;
     }
 
     .category-row h2 {
-        padding: 2em 0em 1em 2.5em;
-    }
+padding-bottom: 1em;    }
 
     .categories-header {
         padding: 0;
@@ -445,112 +495,25 @@ nav {
     #viewAllButtons {
         display: none;
     }
-
-    /* Responsive navigation styles */
-
 }
 
 @media screen and (max-width: 1040px) {
-    .topnav.responsive {
-        position: absolute;
-        max-height: 500px !important;
-        transition: max-height 0.5s ease-in-out;
-        top: 0px;
-        width: 100%;
-
-    }
-
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-        font-size: 1.2em;
-        max-height: 500px;
-    }
-
-    .topnav a:first-child {
-        display: none;
-    }
-
-    .topnav a:nth-child(2) {
-        padding-top: 1em;
-    }
-
-    .topnav {
-        position: absolute;
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        padding-left: 2em;
-        padding-right: 1em;
-        justify-content: flex-end;
-        gap: 0;
-        background-color: transparent;
-        background-color: #212121;
-        grid-column: 2/span 3;
-        grid-row: 2;
-        z-index: 9999;
-        min-height: 1px;
-        overflow: hidden;
-        max-height: 1px;
-        min-height: 1px;
-
-
-
-    }
-
-    nav {
-        padding: 0;
-        display: grid;
-        flex-direction: row;
-        align-items: center;
-        padding: 0 1em 0 1em;
-        background-color: transparent;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 70px 1fr;
-        position: absolute;
-        width: 100%;
-        transition: min-height 0.5s linear;
-        top: 0;
-        z-index: 9998;
-        position: relative;
-    }
 
     #menuIcon.fa-bars {
         z-index: 9999;
-
-
     }
-
 
     #search-input {
         min-width: 123px;
     }
 
     .netflix-logo-mobile {
-        z-index: 9999;
+        z-index: 9998;
         display: block;
         width: 100px;
         margin: 0 auto;
         grid-column: 2;
         grid-row: 1;
-    }
-
-    .topnav a {
-        display: none;
-        background-color: #212121;
-        padding-bottom: 2em;
-        z-index: 9999;
-    }
-
-    .icon {
-        float: right !important;
-        display: flex;
-        right: 16px;
-        top: 16.5px;
-        grid-column: 3;
-        grid-row: 1;
-        justify-self: right;
     }
 
     .search-container {
@@ -560,9 +523,6 @@ nav {
 }
 
 @media screen and (max-width: 600px) {
-    /* Additional styles for smaller screens */
-
-
     .result-container h2 {
         display: none;
     }

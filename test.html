@@ -1,0 +1,63 @@
+function displayFilmsByCategory() {
+    const categoriesContainer = document.getElementById('categories-container');
+    categoriesContainer.innerHTML = '';
+    const filmsByCategory = {};
+  
+    // Sort the filmsData array by category alphabetically
+    const sortedFilmsData = filmsData.slice().sort((a, b) => a.Category.localeCompare(b.Category));
+  
+    sortedFilmsData.forEach((film) => {
+      const category = film.Category;
+  
+      if (!filmsByCategory[category]) {
+        filmsByCategory[category] = [];
+      }
+  
+      filmsByCategory[category].push(film);
+    });
+  
+    for (const category in filmsByCategory) {
+      if (filmsByCategory.hasOwnProperty(category)) {
+        const filmsInCategory = filmsByCategory[category];
+  
+        const categoryHeader = document.createElement('h2');
+        categoryHeader.textContent = category;
+        const filmList = document.createElement('div');
+        filmList.classList.add('film-list');
+  
+        filmsInCategory.forEach((film) => {
+          const filmCard = createFilmCard(film);
+  
+          filmList.appendChild(filmCard);
+        });
+  
+        const filmRow = document.createElement('div');
+        filmRow.classList.add('category-row');
+        filmRow.appendChild(categoryHeader);
+        filmRow.appendChild(filmList);
+  
+        categoriesContainer.appendChild(filmRow);
+      }
+    }
+  }
+
+
+
+  
+  function displayFilmsInAll() {
+    const viewAllCards = document.getElementById('viewAllCards');
+
+    const filmList = document.createElement('div');
+    filmList.classList.add('film-list');
+
+    filmsData.forEach((film) => {
+      const filmCard = createFilmCard(film);
+      filmList.appendChild(filmCard);
+    });
+
+    viewAllCards.innerHTML = '';
+    viewAllCards.appendChild(filmList);
+
+
+  }
+  

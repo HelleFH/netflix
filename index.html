@@ -9,7 +9,7 @@
     <title>Netflix Clone</title>
 
 
-    <script type="module" src="script.js" defer></script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -38,7 +38,7 @@
                     <a href="#">Start</a>
                     <a href="#">Serier</a>
                     <a href="#">Film</a>
-                    <a href="#">Min liste</a>
+                    <a href="myList.html">Min liste</a>
                     <a href="#">Gennemse efter sprog</a>
 
                 </ul>
@@ -50,7 +50,23 @@
         </header>
 
         <main>
-
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModal"><i class="fa fa-xmark fa-2xl" aria-hidden="true"></i></span>
+                    <img class="film-image" id="modalImage" src="" alt="">
+                    <div class="film-details" style="display:flex;">
+                    <h2 id="modalTitle">Film Title</h2>
+                    <p id="modalReleaseYear">Release Year</p>
+                    <p id="modalDescription">Film Description</p>
+                   <div class="film-card-buttons">
+                     <div class="play-button" id="modalPlayButton"></div>
+                    <div id="modalFavoriteButton" class="favorite-button">Favorite Button</div>
+                </div>
+                </div>
+                </div>
+            </div>
+        
+              
             <div id="page-content">
 
                 <div class="result-container" id="resultContainer" style="display:none;">
@@ -58,27 +74,30 @@
                     <h2>Søgeresultater</h2>
 
                     <div id="result-row">
-                        <!-- Search results will be displayed here -->
                     </div>
 
                 </div>
+         
+                  <style>
+                   
+                  </style>
+                </head>
+                <body>
 
-                <div class="favorites-container">
-                    <h1 id="favoritesHeader" class="favorites-header hide-while-searching hide-in-view-all">Min liste
-                    </h1>
-                    <div class="favorite-list-container" class="film-container">
-                    </div>
-                </div>
-
-
-
+            <div class="categories-header-container">
                 <h1 id="categoriesHeader" class="categories-header">Genrer</h1>
+
+                <select id="categoryDropdown">
+                    <option  value=""><p class="dropdown-option">All Categories</p></option>
+                    <!-- Options generated in the next step will go here -->
+                </select>
 
                 <div class="viewAllLink-container"><a class="viewalllink" href="#" id="viewAllLink"
                         class="hide-while-searching">Vis alle film
                     </a><i class="fa-solid fa-chevron-right"></i>
                 </div>
 
+            </div>
 
                 <div class="film-container" id="categories-container">
                 </div>
@@ -95,44 +114,26 @@
                     </div>
                 </div>
             </div>
+           
         </main>
 
-        <footer>
-            <script>
-
-
-                function toggleMobileNav() {
-                    var x = document.getElementById("myTopnav");
-                    var menuIcon = document.getElementById("menuIcon");
-                    var listItem = document.querySelectorAll(".topnav.responsive")
-                    listItem.innerHTML += '<i class="fa-solid fa-chevron-right"></i>';
-
-
-                    if (x.className === "topnav") {
-                        x.className += " responsive";
-                        menuIcon.classList.remove("fa-bars"); // Remove hamburger icon
-                        menuIcon.classList.add("fa-times"); // Add X icon
-
-                    } else {
-                        x.className = "topnav";
-                        menuIcon.classList.remove("fa-times"); // Remove X icon
-                        menuIcon.classList.add("fa-bars"); // Add hamburger icon
-
-                    }
-                }
-
-
-
-
-
-
-
+        <script>// Wait for the document to be fully loaded
+           
             </script>
+        <footer>
+         
         </footer>
 
 
 
     </div>
 </body>
+<script src="modal.js" ></script>
+
+
+<script type="module" src="script.js"></script>
+
+<script src="infoButton.js" ></script>
+
 
 </html>
