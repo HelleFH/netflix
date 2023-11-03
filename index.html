@@ -50,21 +50,7 @@
         </header>
 
         <main>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" id="closeModal"><i class="fa fa-xmark fa-2xl" aria-hidden="true"></i></span>
-                    <img class="film-image" id="modalImage" src="" alt="">
-                    <div class="film-details" style="display:flex;">
-                    <h2 id="modalTitle">Film Title</h2>
-                    <p id="modalReleaseYear">Release Year</p>
-                    <p id="modalDescription">Film Description</p>
-                   <div class="film-card-buttons">
-                     <div class="play-button" id="modalPlayButton"></div>
-                    <div id="modalFavoriteButton" class="favorite-button">Favorite Button</div>
-                </div>
-                </div>
-                </div>
-            </div>
+           
         
               
             <div id="page-content">
@@ -98,6 +84,14 @@
                 </div>
 
             </div>
+            <div>
+                <label style="position:absolute;" for="sort-dropdown"><i class="fas fa-th fa-lg"></i></label>
+                <select id="sort-dropdown">
+                  <option value="title-asc">Title (A-Å)</option>
+                  <option value="title-desc">Title (Å-A)</option>
+                  <option value="release-date">Release Date</option>
+                </select>
+              </div>
 
                 <div class="film-container" id="categories-container">
                 </div>
@@ -128,10 +122,12 @@
 
     </div>
 </body>
-<script src="modal.js" ></script>
+<script type="module" src="modal.js" ></script>
 
+<script type="module" src="dropdown.js"></script>
 
 <script type="module" src="script.js"></script>
+
 
 <script src="infoButton.js" ></script>
 

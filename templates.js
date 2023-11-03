@@ -1,7 +1,8 @@
-// templates.js
 export const filmCardTmpl = (film) => `
 <div class="film-card card">
     <div class="film-image-container">
+    <span class="close-modal-button">&times;</span>
+
         <img src="${film.Image}" class="film-image" alt="${film.Title}" data-id="${film.Id}">
     </div>
     <div class="film-details">
@@ -21,16 +22,3 @@ export const filmCardTmpl = (film) => `
     </div>
 </div>
 `;
-
-export const modalTmpl = (film) => `
-<div id="film-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal-button">&times;</span>
-    <img src="${film.Image}" alt="${film.Title}">
-    <h3>${film.Title}</h3>
-    <h3 class="film-release-year">${film.ReleaseYear}</h3>
-    <p class="film-description">${film.Description}</p>
-  </div>
-</div>
-`;
-

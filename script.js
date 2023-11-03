@@ -251,6 +251,50 @@ viewAllLink.addEventListener("click", function (event) {
     }
   }
 
+  const sortDropdown = document.getElementById('sort-dropdown');
+sortDropdown.addEventListener('change', () => {
+  const selectedOption = sortDropdown.value;
+
+  // Call a function to sort and display films based on the selected option
+  sortAndDisplayFilms(selectedOption);
+});
+async function sortAndDisplayFilms(selectedOption) {
+    try {
+      const response = await fetch('films.json');
+      if (!response.ok) {
+        throw new Error(`Failed to fetch film data: ${response.status}`);
+      }
+      const filmsData = await response.json();
+  
+      const viewAllCards = document.getElementById('viewAllCards');
+      const filmList = document.querySelector('.film-list');
+  
+      if (selectedOption === 'title-asc') {
+        // Sort films by title in ascending order (A-Å)
+        filmsData.sort((a, b) => a.Title.localeCompare(b.Title, 'sv'));
+      } else if (selectedOption === 'title-desc') {
+        // Sort films by title in descending order (Å-A)
+        filmsData.sort((a, b) => b.Title.localeCompare(a.Title, 'sv'));
+      } else if (selectedOption === 'release-date') {
+        // Sort films by release date
+        filmsData.sort((a, b) => a.ReleaseYear - b.ReleaseYear);
+      }
+  
+      // Clear the film list
+      filmList.innerHTML = '';
+  
+      // Display the sorted films
+      filmsData.forEach((film) => {
+        const filmCard = createFilmCard(film);
+        filmList.appendChild(filmCard);
+      });
+    } catch (error) {
+      console.error('Error sorting and displaying films:', error);
+    }
+  }
+
+
+  
   
 
   fetchAndDisplayFilms();
@@ -277,3 +321,19 @@ gridViewButton.addEventListener('click', function () {
     viewAllCards.classList.remove('list-view');
     viewAllCards.classList.add('grid-view');
 });
+// Function to truncate description text
+function truncateDescription(description, wordLimit) {
+  const words = description.split(' ');
+  if (words.length <= wordLimit) {
+      return description;
+  } else {
+      const truncatedText = words.slice(0, wordLimit).join(' ');
+      const remainingText = words.slice(wordLimit).join(' ');
+      const match = remainingText.match(/\.[^\.\s]+/);
+      if (match) {
+          const truncatedAfterFullStop = truncatedText + match[0];
+          return truncatedAfterFullStop;
+      }
+      return truncatedText;
+  }
+}
