@@ -1,6 +1,6 @@
 import { filmCardTmpl } from "./templates.js";
 
-function loadFavoriteFilmIDs() {
+  function loadFavoriteFilmIDs() {
     const storedIDs = localStorage.getItem('favoriteFilmIDs');
     return storedIDs ? new Set(JSON.parse(storedIDs)) : new Set();
 }
@@ -8,14 +8,13 @@ function loadFavoriteFilmIDs() {
 const favoriteFilmIDs = loadFavoriteFilmIDs();
   let filmsData = [];
   let favLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-  function createFilmCard(film) {
+
+function createFilmCard(film) {
     const filmCard = document.createElement('div');
     filmCard.innerHTML = filmCardTmpl(film);
-
+    
+    const favoriteButton = filmCard.querySelector('.favorite-button');
     const filmId = film.Id;
-
-    // Find and target the favorite button within the film card
-    const favoriteButton = filmCard.querySelector(`[data-id="${film.Id}"] .favorite-button`);
 
     // Check if the film is in favorites and set the button state accordingly
     if (favoriteFilmIDs.has(filmId)) {
@@ -27,6 +26,7 @@ const favoriteFilmIDs = loadFavoriteFilmIDs();
     }
 
     favoriteButton.addEventListener('click', () => {
+        console.log('Button clicked');
         const currentState = favoriteButton.getAttribute('data-state');
 
         if (currentState === 'unfavorited') {
@@ -47,7 +47,6 @@ const favoriteFilmIDs = loadFavoriteFilmIDs();
 
     return filmCard;
 }
-
 
 async function fetchFilmsData() {
   try {

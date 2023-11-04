@@ -64,10 +64,6 @@
 
                 </div>
          
-                  <style>
-                   
-                  </style>
-                </head>
                 <body>
 
             <div class="categories-header-container">
@@ -86,10 +82,13 @@
             </div>
             <div>
                 <label style="position:absolute;" for="sort-dropdown"><i class="fas fa-th fa-lg"></i></label>
-                <select id="sort-dropdown">
+                <select id="sort-dropdown" >
+                    <option value="genres">Genres</option>
+
                   <option value="title-asc">Title (A-Å)</option>
                   <option value="title-desc">Title (Å-A)</option>
                   <option value="release-date">Release Date</option>
+
                 </select>
               </div>
 
@@ -106,7 +105,15 @@
 
                     <div id="viewAllCards">
                     </div>
+
                 </div>
+
+                <div id="sorted-films-container" class="sorted-films-container">
+                    <!-- The sorted views will be added here -->
+                  </div>
+                  
+<style>.sorted-films-container {padding-top:1.5em;display:grid; grid-auto-rows: 150px;width:100%;  gap:1em;  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}</style>
             </div>
            
         </main>
@@ -122,14 +129,16 @@
 
     </div>
 </body>
+<script  src="filmCardHover.js"></script>
+
 <script type="module" src="modal.js" ></script>
-
 <script type="module" src="dropdown.js"></script>
-
 <script type="module" src="script.js"></script>
-
-
 <script src="infoButton.js" ></script>
+<script src="dropdown.js" ></script>
+<script src="filmDescriptionMobile.js" ></script>
+
+
 
 
 </html>

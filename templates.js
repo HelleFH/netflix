@@ -1,7 +1,8 @@
 export const filmCardTmpl = (film) => `
 <div class="film-card card">
+<span class="close-modal-button">&times;</span>
+
     <div class="film-image-container">
-    <span class="close-modal-button">&times;</span>
 
         <img src="${film.Image}" class="film-image" alt="${film.Title}" data-id="${film.Id}">
     </div>
@@ -14,11 +15,12 @@ export const filmCardTmpl = (film) => `
         <i class="fas fa-plus"></i>
         </button>
         <button class="info-button" data-id="${film.Id}">
-        <i class="fas fa-info-circle"></i>
-        </button>
+        <i class="fa-solid fa-circle-info fa-lg"></i>
+                </button>
         
         </div>
         <p class="film-description" >${film.Description}</p>
     </div>
+
 </div>
 `;

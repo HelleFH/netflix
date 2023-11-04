@@ -250,25 +250,41 @@ viewAllLink.addEventListener("click", function (event) {
       console.error('Error fetching films:', error);
     }
   }
-
-  const sortDropdown = document.getElementById('sort-dropdown');
+const sortDropdown = document.getElementById('sort-dropdown');
 sortDropdown.addEventListener('change', () => {
   const selectedOption = sortDropdown.value;
 
-  // Call a function to sort and display films based on the selected option
-  sortAndDisplayFilms(selectedOption);
+  if (selectedOption === 'genres') {
+    // Redirect to the normal index state
+    window.location.href = 'index.html'; // Update the URL as needed
+  } else {
+    // Call a function to sort and display films based on the selected option
+    sortAndDisplayFilms(selectedOption);
+  }
 });
 async function sortAndDisplayFilms(selectedOption) {
-    try {
-      const response = await fetch('films.json');
-      if (!response.ok) {
-        throw new Error(`Failed to fetch film data: ${response.status}`);
-      }
-      const filmsData = await response.json();
-  
-      const viewAllCards = document.getElementById('viewAllCards');
-      const filmList = document.querySelector('.film-list');
-  
+  try {
+    const response = await fetch('films.json');
+    if (!response.ok) {
+      throw new Error(`Failed to fetch film data: ${response.status}`);
+    }
+    const filmsData = await response.json();
+
+    const sortedFilmsContainer = document.getElementById('sorted-films-container'); // Get the container
+    const filmList = document.querySelector('.film-list');
+    const categoryRows = document.querySelectorAll('.category-row'); // Select all category headers
+
+    if (selectedOption === 'title-asc' || selectedOption === 'title-desc' || selectedOption === 'release-date') {
+      // Handle sorted views
+      // Clear the film list
+      filmList.innerHTML = '';
+
+      // Hide all category headers
+      categoryRows.forEach((categoryHeader) => {
+        categoryHeader.style.display = 'none';
+      });
+
+      // Sort films based on the selected option
       if (selectedOption === 'title-asc') {
         // Sort films by title in ascending order (A-Å)
         filmsData.sort((a, b) => a.Title.localeCompare(b.Title, 'sv'));
@@ -279,22 +295,29 @@ async function sortAndDisplayFilms(selectedOption) {
         // Sort films by release date
         filmsData.sort((a, b) => a.ReleaseYear - b.ReleaseYear);
       }
-  
-      // Clear the film list
-      filmList.innerHTML = '';
-  
-      // Display the sorted films
+
+      // Display the sorted films inside the sortedFilmsContainer
       filmsData.forEach((film) => {
         const filmCard = createFilmCard(film);
-        filmList.appendChild(filmCard);
+        sortedFilmsContainer.appendChild(filmCard);
       });
-    } catch (error) {
-      console.error('Error sorting and displaying films:', error);
+    } else if (selectedOption === 'genres') {
+      // Handle genre view (add specific logic to structure the genre view)
+      // Clear the film list
+      filmList.innerHTML = '';
+
+      // Show all category headers for the genre view
+      categoryRows.forEach((categoryHeader) => {
+        categoryHeader.style.display = 'block';
+      });
+
+      // Additional logic to create and structure the genre view
+      // ...
     }
+  } catch (error) {
+    console.error('Error sorting and displaying films:', error);
   }
-
-
-  
+}
   
 
   fetchAndDisplayFilms();
@@ -322,18 +345,3 @@ gridViewButton.addEventListener('click', function () {
     viewAllCards.classList.add('grid-view');
 });
 // Function to truncate description text
-function truncateDescription(description, wordLimit) {
-  const words = description.split(' ');
-  if (words.length <= wordLimit) {
-      return description;
-  } else {
-      const truncatedText = words.slice(0, wordLimit).join(' ');
-      const remainingText = words.slice(wordLimit).join(' ');
-      const match = remainingText.match(/\.[^\.\s]+/);
-      if (match) {
-          const truncatedAfterFullStop = truncatedText + match[0];
-          return truncatedAfterFullStop;
-      }
-      return truncatedText;
-  }
-}

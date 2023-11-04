@@ -11,13 +11,14 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    background-color: #141414;
 }
 
 body {
-    color: #e5e5e5;
+    color: #fff;
     font-family: 'Netflix Sans', sans-serif;
     font-size: 1em;
+    background-color: #141414;
+
 }
 
 h2 {
@@ -206,6 +207,7 @@ a:hover {
     font-weight: bold;
     padding: 0.3em;
     font-size: 0.8em;
+    background-color: #212121;
 }
 
 #categoryDropdown option {
@@ -217,11 +219,12 @@ a:hover {
 
 }
 
-.category-row h3 {
+.category-row h2 {
 
     color: #fff;
     font-size: 1.3em;
     padding-bottom: 0.5em;
+    display: block ;
 }
 .viewAllLink-container {margin-left:auto;}
 .category-row {
@@ -251,12 +254,13 @@ a:hover {
     min-width: 175px;
     max-width: 250px;
     position: relative;
+    transform: scale(1) ;
 }
 
-.card img {
+.card img:hover  {
     border-radius: 4px;
 }
-
+.card img:hover {border-radius:4px 4px 0 0;transition-delay: 0.9s;}
 .card h3 {
     font-size: 0.9em;
     padding-top: 0.2em;
@@ -266,7 +270,7 @@ a:hover {
 /* Modal container */
 .modal {
     z-index: 9999;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -276,23 +280,7 @@ a:hover {
     overflow: auto;
 
   }
-  
-  /* Modal content */
-  .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    max-width: 600px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: opacity 0.3s; /* Add transition effect for opacity */
 
-  }
-
-  
-  /* Close button */
   .close-modal-button {
     position: absolute;
     top: 0;
@@ -303,33 +291,12 @@ a:hover {
     color: #333;
   }
   
-  /* Image within the modal */
-  .modal-content img {
-    max-width: 100%;
-  }
-  
-  /* Additional styling for title, release year, and description */
-  .modal-content h3 {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-  
-  .modal-content .film-release-year {
-    font-size: 18px;
-    color: #999;
-  }
-  
-  .modal-content .film-description {
-    font-size: 16px;
-    margin: 20px 0;
-  }
-  
+
+
 .card:hover {
-    transform: scale(1.2);
     z-index: 9997;
     position: relative;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    transition-delay: 0.3s;
 }
 
 
@@ -342,12 +309,14 @@ a:hover {
     border-radius: 0 0 5px 5px;
     position: relative;
 
+
 }
 .close-modal-button {display:none;}
 .modal .close-modal-button {display:block;}
-.modal .film-card:hover {transform:none;}
-.modal .film-details {display:flex;}
+.modal .card:hover {transform:none;}
 .modal {z-index: 9999;}
+.modal .film-details {display:flex;}
+.modal .card {max-width:95vw;margin:0 auto;justify-self: center;}
 
 
 
@@ -364,14 +333,16 @@ a:hover {
     color: white;
     border: 2px solid white;
     border-radius: 100%;
-    padding: 0.5em;
     width: 25px;
     height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+.fa-info-circle::before { display:block;   border-radius: 100%;
+    width: 30px;
+    height: 30px; padding:1em;    color: white;border:none;
+}
 .play-button .fa-play {
     color: black;
 }
@@ -383,7 +354,7 @@ a:hover {
 }
 
 .card p {
-    font-size: 0.7em;
+    font-size: 0.8em;
     line-height: 1.5em;
     padding-bottom: 1.5em;
     font-weight: 500;
@@ -427,7 +398,7 @@ a:hover {
     height: 100vh;
 }
 
-.grid-view .film-card {
+.grid-view .card {
     transition: transform 0.3s ease-in-out, z-index 0.3s;
 }
 
@@ -451,19 +422,20 @@ a:hover {
         max-width: 600px;
     }
 
-  
+  .card {max-width:95vw;}
     .card p,
     .film-card-buttons,
     .card h3 {
         background-color: #212121;
     }
 
-
+.film-details {display:flex !important;}
     .card h3 {
         font-size: 0.7em;
     }
 
     .card p {
+        font-size: 0.7em;
         padding: 1em;
     }
 
