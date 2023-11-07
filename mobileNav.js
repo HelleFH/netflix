@@ -1,3 +1,4 @@
+import service from './data.service.js';
 const categoryList = document.getElementById('category-list');
 categoryList.addEventListener('click', (event) => {
   if (event.target.classList.contains('category-item')) {
@@ -11,11 +12,7 @@ categoryList.addEventListener('click', (event) => {
 
 async function populateCategories() {
   try {
-    const response = await fetch('films.json');
-    if (!response.ok) {
-      throw new Error(`Failed to fetch film data: ${response.status}`);
-    }
-    const filmsData = await response.json();
+    const filmsData = await service.getFilms();
 
     const categories = [...new Set(filmsData.map((film) => film.Category))];
 
@@ -30,10 +27,16 @@ async function populateCategories() {
   }
 }
 
-populateCategories();
-const burgerIcon = document.getElementById('burger-icon');
-const mobileMenu = document.querySelector('.links');
+// Function to handle burger menu icon click
+function handleBurgerMenu() {
+  const burgerIcon = document.getElementById('burger-icon');
+  const mobileMenu = document.querySelector('.links');
 
-burgerIcon.addEventListener('click', () => {
-  mobileMenu.style.height = mobileMenu.style.height === '100%' ? '0' : '100%' 
-});
+  burgerIcon.addEventListener('click', () => {
+    mobileMenu.style.height = mobileMenu.style.height === '100%' ? '0' : '100%';
+  });
+}
+
+// Call the functions where needed
+populateCategories();
+handleBurgerMenu();

@@ -102,7 +102,7 @@
         display: flex;
         margin-left: 0;
         min-width: 100px;
-        text-indent:0.5em;
+        text-indent:0.1em;
     }
 
     .search-container {

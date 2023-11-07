@@ -52,7 +52,7 @@
                     <div class="search-button" id="search-button">
                         <i class="fas fa-search fa-lg"></i>
                     </div>
-                    <input type="text" id="search-input" placeholder="Search titles" class="hidden">
+                    <input type="text" id="search-input" placeholder="Search all titles" class="hidden">
                 </div>
 
             </nav>
@@ -60,28 +60,35 @@
         </header>
 
         <main>
-            <div>
                 <div id="page-content">
-                    <h3 class="favorite-page-header">Your List</h3>
-                    <div id="favorites-page-films"></div>
 
-                    <div class="refresh-button" onClick="window.location.reload();"><p>Refresh List</p></div>
+                    <div class="result-container" id="resultContainer">
+                        <div id="search-result-films">
+                        </div>
+                    </div>
+                    <div id="searchable-content">
+
+                    <h3 class="favorite-page-header">Your List</h3>
+                        <div id="favorites-page-films"></div>
+
+                    <div class="refresh-button" onClick="window.location.reload();">
+                        <p>Refresh List</p>
+                    </div>
+                </div>
 
                 </div>
 
-                <script type="module" src="favorites.js"></script>
-                <script src="filmCardHover.js"></script>
-                <script type="module" src="modal.js"></script>
-                <script type="module" src="dropdown.js"></script>
-                <script type="module" src="script.js"></script>
-                <script src="infoButton.js"></script>
-                <script src="filmDescriptionMobile.js"></script>
-                <script src="mobileNav.js"></script>
-                <script type="module" src="sortFilms.js"></script>
+        </main>
 
-            </div>
-        </main>
-        </main>
+        <script type="module" src="favorites.js"></script>
+        <script src="filmCardHover.js"></script>
+        <script type="module" src="modal.js"></script>
+        <script type="module" src="dropdown.js"></script>
+        <script src="infoButton.js"></script>
+        <script src="filmDescriptionMobile.js"></script>
+        <script type="module" src="mobileNav.js"></script>
+        <script type="module" src="sortFilms.js"></script>
+        <script type="module" src="search.js"></script>
 </body>
 
 </html>

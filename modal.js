@@ -32,8 +32,19 @@ async function openFilmModal(filmId) {
       const closeModalButton = modal.querySelector('.close-modal-button');
       closeModalButton.addEventListener(clickOrTouch, () => {
         document.body.removeChild(modal);
-        location.reload();
+      
+        // Check if the "search-result-films" container is displayed
+        const searchResultFilms = document.getElementById('search-result-films');
+        if (window.getComputedStyle(searchResultFilms).display === 'grid') {
+          // If it's displayed as grid, do nothing (won't reload)
+        } else {
+          location.reload(); // Reload the page for other modals
+        }
       });
+      
+      
+      
+      
 
       const modalFavoriteButton = modal.querySelector('.favorite-button');
 

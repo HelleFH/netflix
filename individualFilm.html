@@ -48,7 +48,7 @@
             <div class="search-button" id="search-button">
                 <i class="fas fa-search fa-lg"></i>
             </div>
-            <input type="text" id="search-input" placeholder="Search titles" class="hidden">
+            <input type="text" id="search-input" placeholder="Search all titles" class="hidden">
         </div>
 
     </nav>
@@ -59,14 +59,15 @@
             <div id="search-result-films">
             </div>
         </div>
-        <div class="individual-film-content">
+        <div class="individual-film-content hide-while-searching" id="searchable-content">
             <div class="back-to-categories-button"><a href="index.html" class="button"><i class="fa-solid fa-arrow-left fa-lg"></i></a></div>
 
             <div id="individual-page-films">
             </div>
         </div>
         <script type="module" src="individualFilm.js"></script>
-        <script src="mobileNav.js"></script>
+        <script type="module"  src="mobileNav.js"></script>
+        <script type="module" src="search.js"></script>
 
         <script type="module" src="favoriteButton.js"></script>
 
