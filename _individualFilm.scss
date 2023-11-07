@@ -1,0 +1,24 @@
+
+#individual-page-films .info-button {
+    display: none;
+}
+
+#individual-page-films {}
+
+#individual-page-films .card {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+
+#individual-page-films .card:hover {
+    transform: none;
+}
+
+#individual-page-films .film-details {
+    display: flex;
+}
+@media (max-width: 767px) {
+    #search-input {
+        min-width: 123px;
+    }}

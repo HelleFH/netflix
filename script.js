@@ -1,347 +1,145 @@
-import service from "./data.service.js";
-import { filmCardTmpl } from "./templates.js"; 
+import { createFilmCard } from "./createFilmCard.js";
+import { initializeSearch } from "./search.js";
 
 const app = {};
 
 app.init = async () => {
-  
-  function loadFavoriteFilmIDs() {
-    const storedIDs = localStorage.getItem('favoriteFilmIDs');
-    return storedIDs ? new Set(JSON.parse(storedIDs)) : new Set();
-}
 
-const favoriteFilmIDs = loadFavoriteFilmIDs();
-  let filmsData = [];
-  let favLocalStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+  let filmsData = []; // Initialize an empty array to hold the films data
 
-  async function fetchAndDisplayFilms() {
-    try {
-      const response = await service.getFilms();
-      filmsData = await response.json();
-      displayFilmsByCategory();
-    } catch (error) {
-      console.error('Error fetching films:', error);
-    }
-  }
-
-  function displayFilmsInAll() {
-    const viewAllCards = document.getElementById('viewAllCards');
-
-    const filmList = document.createElement('div');
-    filmList.classList.add('film-list');
-
-    filmsData.forEach((film) => {
-      const filmCard = createFilmCard(film);
-      filmList.appendChild(filmCard);
-    });
-
-    viewAllCards.innerHTML = '';
-    viewAllCards.appendChild(filmList);
-
-
-  }
   fetch('films.json')
-  .then(response => response.json())
-  .then(data => {
-      console.log(data); // Log the data to check if it's correctly loaded
-      const uniqueCategories = [...new Set(data.map(film => film.Category))];
-      console.log(uniqueCategories); // Log the unique categories
-      
-  const categoryDropdown = document.getElementById('categoryDropdown');
+    .then(response => response.json())
+    .then(data => {
+      filmsData = data; // Store the fetched data in the filmsData variable
+      console.log(filmsData); // Log the data to check if it's correctly loaded
+      const uniqueCategories = [...new Set(filmsData.map(film => film.Category))];
+      console.log(uniqueCategories);
 
-  uniqueCategories.forEach(category => {
-      const option = document.createElement('option');
-      option.value = category;
-      option.text = category;
-      categoryDropdown.appendChild(option);
-  });
-  categoryDropdown.addEventListener('change', function () {
-    const selectedCategory = categoryDropdown.value;
-  
-    // Get all category rows
-    const categoryRows = document.querySelectorAll('.category-row');
-  
-    categoryRows.forEach(categoryRow => {
-      const categoryHeader = categoryRow.querySelector('h2');
-  
-      if (categoryHeader.textContent === selectedCategory || selectedCategory === '') {
-        // Show the category row if it matches the selected category or no category is selected
-        categoryRow.style.display = 'block';
-      } else {
-        // Hide the category row if it doesn't match the selected category
-        categoryRow.style.display = 'none';
-      }
-    });
-  });
+      displayFilmsByCategory();
 
-  
-  const searchButton = document.getElementById("search-button");
-  const searchInput = document.getElementById("search-input");
-  const resultRow = document.getElementById("result-row");
+      const categoryDropdown = document.getElementById('categoryDropdown');
 
-  searchButton.addEventListener("click", function () {
-    // Toggle the visibility of the search input
-    searchInput.classList.toggle("hidden");
-  
-    // If the search input is now visible, focus on it
-    if (!searchInput.classList.contains("hidden")) {
-      searchInput.focus();
-    } else {
-      // If the search input is hidden, clear its value
-      searchInput.value = "";
-      // Remove the "active" class from the result container to hide search results
-      resultContainer.classList.remove("active");
-    }
-  });
+      uniqueCategories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.text = category;
+        categoryDropdown.appendChild(option);
+      });
+      categoryDropdown.addEventListener('change', function () {
+        const selectedCategory = categoryDropdown.value;
 
-searchInput.addEventListener("input", function () {
-  const searchTerm = searchInput.value.trim().toLowerCase();
+        const categoryRows = document.querySelectorAll('.category-row');
+        const sortedFilmsContainer = document.getElementById('sorted-films');
 
-  if (/[\w\d]/.test(searchTerm)) {
-    resultRow.innerHTML = "";
 
-    resultContainer.style.display = "flex";
+        categoryRows.forEach(categoryRow => {
+          const categoryHeader = categoryRow.querySelector('h2');
 
-    // Filter films based on the search query
-    const filteredFilms = filmsData.filter((film) => {
-      const filmTitle = film.Title.toLowerCase();
-      return filmTitle.includes(searchTerm);
-    });
+          if (categoryHeader.textContent === selectedCategory || selectedCategory === '') {
+            categoryRow.style.display = 'block';
+            sortedFilmsContainer.style.display = 'none';
 
-    // Populate the result-row with search results
-    filteredFilms.forEach((film) => {
-      const filmCard = createFilmCard(film);
-      resultRow.appendChild(filmCard);
-    });
-  } else {
-    // Clear the search results if the search term is empty
-    resultRow.innerHTML = "";
 
-    resultContainer.style.display = "none";
-  }
-});
-let searchHeader = resultContainer.querySelector("h2");
-if (!searchHeader) {
-    searchHeader = document.createElement("h2");
-    searchHeader.textContent = "Search Results";
-    resultContainer.appendChild(searchHeader); 
-}
-console.log(searchHeader); 
-  
-    })
-  .catch(error => console.error('Error:', error));
+          } else {
+            categoryRow.style.display = 'none';
 
-function createFilmCard(film) {
-    const filmCard = document.createElement('div');
-    filmCard.innerHTML = filmCardTmpl(film);
-    
-    const favoriteButton = filmCard.querySelector('.favorite-button');
-    const filmId = film.Id;
-
-    // Check if the film is in favorites and set the button state accordingly
-    if (favoriteFilmIDs.has(filmId)) {
-        favoriteButton.setAttribute('data-state', 'favorited');
-        favoriteButton.innerHTML = '<i class="fas fa-check"></i>';
-    } else {
-        favoriteButton.setAttribute('data-state', 'unfavorited');
-        favoriteButton.innerHTML = '<i class="fas fa-plus"></i>';
-    }
-
-    favoriteButton.addEventListener('click', () => {
-        console.log('Button clicked');
-        const currentState = favoriteButton.getAttribute('data-state');
-
-        if (currentState === 'unfavorited') {
-            // Add the film ID to the list of favorites
-            favoriteFilmIDs.add(filmId);
-            favoriteButton.setAttribute('data-state', 'favorited');
-            favoriteButton.innerHTML = '<i class="fas fa-check"></i>';
-        } else {
-            // Remove the film ID from the list of favorites
-            favoriteFilmIDs.delete(filmId);
-            favoriteButton.setAttribute('data-state', 'unfavorited');
-            favoriteButton.innerHTML = '<i class="fas fa-plus"></i>';
-        }
-
-        // Save the updated list of favorite film IDs in local storage
-        localStorage.setItem('favoriteFilmIDs', JSON.stringify(Array.from(favoriteFilmIDs)));
-    });
-
-    return filmCard;
-}
-
-function displayFilmsByCategory() {
-  const categoriesContainer = document.getElementById('categories-container');
-  categoriesContainer.innerHTML = '';
-  const filmsByCategory = {};
-
-  // Sort the filmsData array by category alphabetically
-  const sortedFilmsData = filmsData.slice().sort((a, b) => a.Category.localeCompare(b.Category));
-
-  sortedFilmsData.forEach((film) => {
-    const category = film.Category;
-
-    if (!filmsByCategory[category]) {
-      filmsByCategory[category] = [];
-    }
-
-    filmsByCategory[category].push(film);
-  });
-
-  for (const category in filmsByCategory) {
-    if (filmsByCategory.hasOwnProperty(category)) {
-      const filmsInCategory = filmsByCategory[category];
-
-      const categoryHeader = document.createElement('h2');
-      categoryHeader.textContent = category;
-      const filmList = document.createElement('div');
-      filmList.classList.add('film-list');
-
-      filmsInCategory.forEach((film) => {
-        const filmCard = createFilmCard(film);
-
-        filmList.appendChild(filmCard);
+          }
+        });
       });
 
-      const filmRow = document.createElement('div');
-      filmRow.classList.add('category-row');
-      filmRow.appendChild(categoryHeader);
-      filmRow.appendChild(filmList);
+      initializeSearch(filmsData);
 
-      categoriesContainer.appendChild(filmRow);
+      
+          })
+    .catch(error => console.error('Error:', error));
+
+
+  function displayFilmsByCategory() {
+    const categoriesContainer = document.getElementById('category-sorted-films');
+    categoriesContainer.innerHTML = '';
+    const filmsByCategory = {};
+
+    const sortedFilmsData = filmsData.slice().sort((a, b) => a.Category.localeCompare(b.Category));
+
+    sortedFilmsData.forEach((film) => {
+      const category = film.Category;
+
+      if (!filmsByCategory[category]) {
+        filmsByCategory[category] = [];
+      }
+
+      filmsByCategory[category].push(film);
+    });
+
+    for (const category in filmsByCategory) {
+      if (filmsByCategory.hasOwnProperty(category)) {
+        const filmsInCategory = filmsByCategory[category];
+
+        const categoryHeader = document.createElement('h2');
+        categoryHeader.textContent = category;
+        const filmList = document.createElement('div');
+        filmList.classList.add('film-list');
+
+        filmsInCategory.forEach((film) => {
+          const filmCard = createFilmCard(film);
+
+          filmList.appendChild(filmCard);
+        });
+
+        const filmRow = document.createElement('div');
+        filmRow.classList.add('category-row');
+        filmRow.appendChild(categoryHeader);
+        filmRow.appendChild(filmList);
+        categoriesContainer.appendChild(filmRow);
+      }
     }
   }
-}
 
-  const categoriesHeader = document.getElementById("categoriesHeader");
-
-
-viewAllLink.addEventListener("click", function (event) {
-  const viewAllContainer = document.getElementById("viewAllContainer");
-  const categoriesContainer = document.getElementById("categories-container");
-  const rightChevron = document.querySelector (".fa-chevron-right")
-
-  if (viewAllContainer.style.display === "none") {
-    viewAllContainer.style.display = "grid";
-    categoriesContainer.style.display = "none";
-    rightChevron.style.display = "none";
-    viewAllLink.innerHTML = '<div id="viewallLinkReturn" ><i class="fas fa-chevron-left" ></i> Tilbage til kategorier</div>';
-   
-    displayFilmsInAll();
-
-    categoriesHeader.style.display = "none";
-
-  } else {
-    viewAllContainer.style.display = "none";
-    categoriesContainer.style.display = "grid";
-    viewAllLink.innerHTML = 'Alle film a-å';
-
-    categoriesHeader.style.display = "block";
-
-  }
-});
-
-  async function fetchAndDisplayFilms() {
-    try {
-      const response = await fetch('films.json'); 
-      filmsData = await response.json();
-      displayFilmsByCategory();
-    } catch (error) {
-      console.error('Error fetching films:', error);
-    }
-  }
-const sortDropdown = document.getElementById('sort-dropdown');
+  const sortDropdown = document.getElementById('sort-dropdown');
+  const sortedFilmsContainer = document.getElementById('sorted-films')
 sortDropdown.addEventListener('change', () => {
   const selectedOption = sortDropdown.value;
 
   if (selectedOption === 'genres') {
-    // Redirect to the normal index state
-    window.location.href = 'index.html'; // Update the URL as needed
+    // Redirect to the same page (you can choose the same or another URL)
+    window.location.href = 'index.html';
+
+
   } else {
-    // Call a function to sort and display films based on the selected option
     sortAndDisplayFilms(selectedOption);
   }
 });
 async function sortAndDisplayFilms(selectedOption) {
   try {
-    const response = await fetch('films.json');
-    if (!response.ok) {
-      throw new Error(`Failed to fetch film data: ${response.status}`);
+    const sortedFilmsContainer = document.getElementById('sorted-films');
+    const categoryRows = document.querySelectorAll('.category-row');
+
+    categoryRows.forEach((categoryHeader) => {
+      categoryHeader.style.display = 'none';
+      sortedFilmsContainer.style.display = 'grid';
+
+    });
+
+    if (selectedOption === 'title-asc') {
+      filmsData.sort((a, b) => a.Title.localeCompare(b.Title, 'sv'));
+      
+    } else if (selectedOption === 'title-desc') {
+      filmsData.sort((a, b) => b.Title.localeCompare(a.Title, 'sv'));
+    } else if (selectedOption === 'release-date') {
+      filmsData.sort((a, b) => a.ReleaseYear - b.ReleaseYear);
     }
-    const filmsData = await response.json();
 
-    const sortedFilmsContainer = document.getElementById('sorted-films-container'); // Get the container
-    const filmList = document.querySelector('.film-list');
-    const categoryRows = document.querySelectorAll('.category-row'); // Select all category headers
+    sortedFilmsContainer.innerHTML = ''; // Clear the existing film list
+    filmsData.forEach((film) => {
+      const filmCard = createFilmCard(film);
+      sortedFilmsContainer.appendChild(filmCard);
 
-    if (selectedOption === 'title-asc' || selectedOption === 'title-desc' || selectedOption === 'release-date') {
-      // Handle sorted views
-      // Clear the film list
-      filmList.innerHTML = '';
-
-      // Hide all category headers
-      categoryRows.forEach((categoryHeader) => {
-        categoryHeader.style.display = 'none';
-      });
-
-      // Sort films based on the selected option
-      if (selectedOption === 'title-asc') {
-        // Sort films by title in ascending order (A-Å)
-        filmsData.sort((a, b) => a.Title.localeCompare(b.Title, 'sv'));
-      } else if (selectedOption === 'title-desc') {
-        // Sort films by title in descending order (Å-A)
-        filmsData.sort((a, b) => b.Title.localeCompare(a.Title, 'sv'));
-      } else if (selectedOption === 'release-date') {
-        // Sort films by release date
-        filmsData.sort((a, b) => a.ReleaseYear - b.ReleaseYear);
-      }
-
-      // Display the sorted films inside the sortedFilmsContainer
-      filmsData.forEach((film) => {
-        const filmCard = createFilmCard(film);
-        sortedFilmsContainer.appendChild(filmCard);
-      });
-    } else if (selectedOption === 'genres') {
-      // Handle genre view (add specific logic to structure the genre view)
-      // Clear the film list
-      filmList.innerHTML = '';
-
-      // Show all category headers for the genre view
-      categoryRows.forEach((categoryHeader) => {
-        categoryHeader.style.display = 'block';
-      });
-
-      // Additional logic to create and structure the genre view
-      // ...
-    }
+    });
   } catch (error) {
     console.error('Error sorting and displaying films:', error);
   }
 }
-  
 
-  fetchAndDisplayFilms();
 };
 
-
 app.init();
-
-export const listViewButton = document.getElementById('listViewButton');
-listViewButton.addEventListener('click', function () {
-    listViewButton.classList.add('view-active');
-    gridViewButton.classList.remove('view-active');
-    const viewAllCards = document.getElementById('viewAllCards');
-    viewAllCards.classList.add('list-view');
-    viewAllCards.classList.remove('grid-view');
-});
-
-
-export const gridViewButton = document.getElementById('gridViewButton');
-gridViewButton.addEventListener('click', function () {
-    gridViewButton.classList.add('view-active');
-    listViewButton.classList.remove('view-active');
-    const viewAllCards = document.getElementById('viewAllCards');
-    viewAllCards.classList.remove('list-view');
-    viewAllCards.classList.add('grid-view');
-});
-// Function to truncate description text

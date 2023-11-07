@@ -29,8 +29,9 @@ h3 {
     font-weight: 400;
 }
 
-.icon {
+.mobile-nav-container {
     display: none;
+
 }
 
 a {
@@ -48,6 +49,15 @@ a {
     padding-right: 3%;
 }
 
+.sorted-films {
+    padding-top: 1.5em;
+    display: grid;
+    grid-auto-rows: 150px;
+    width: 100%;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
 img {
     width: 100%;
     display: block;
@@ -56,7 +66,7 @@ img {
 
 nav {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     padding-right: 3em;
 }
 
@@ -75,30 +85,15 @@ a:hover {
     color: #b3b3b3;
 }
 
-.netflix-logo {
-    max-width: 100px;
-}
-
-.netflix-logo-mobile {
-    display: none;
-}
-
-#favorites-container {
-    display: grid;
-    grid-auto-rows: 200px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    flex-wrap: wrap;
-    gap: 0.7em;
-    margin-top: 1em;
-    position: relative;
-}
-
-
 
 .search-container {
     display: flex;
     align-items: center;
     margin-left: auto;
+}
+
+.mobile-search-container {
+    display: none;
 }
 
 #search-container {
@@ -108,6 +103,7 @@ a:hover {
     display: flex;
     align-items: center;
     z-index: -1;
+    margin-left: auto;
 }
 
 #search-button {
@@ -148,7 +144,7 @@ a:hover {
     align-items: center;
 }
 
-#result-row {
+#search-result-films {
     display: grid;
     grid-auto-rows: 200px;
     grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
@@ -181,27 +177,27 @@ a:hover {
     }
 }
 
-.index-header-container h1 {
-    line-height: 28px;
-}
 
-.index-header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 2em;
-    width: 100%;
-}
 
 .categories-header-container {
     display: flex;
     flex-direction: row;
     gap: 1em;
     align-items: flex-end;
-    width:100%;
+    width: 100%;
+    padding-bottom: 2.5em;
 }
-#categoriesHeader {line-height: 1em;}
-#categoryDropdown, #sort-dropdown {
+
+#categoriesHeader {
+    line-height: 1em;
+}
+
+.sort-dropdown {
+    margin-left: auto;
+}
+
+#categoryDropdown,
+#sort-dropdown {
     width: fit-content;
     color: white;
     font-weight: bold;
@@ -224,12 +220,12 @@ a:hover {
     color: #fff;
     font-size: 1.3em;
     padding-bottom: 0.5em;
-    display: block ;
+    display: block;
 }
-.viewAllLink-container {margin-left:auto;}
+
 .category-row {
     display: grid;
-    grid-template-rows: 1fr 250px;
+    grid-template-rows: 1fr 170px;
 
 }
 
@@ -254,13 +250,38 @@ a:hover {
     min-width: 175px;
     max-width: 250px;
     position: relative;
-    transform: scale(1) ;
 }
 
-.card img:hover  {
-    border-radius: 4px;
+.modal .card {
+    margin-bottom: 5em !important;
+    padding-bottom: 4em;
 }
-.card img:hover {border-radius:4px 4px 0 0;transition-delay: 0.9s;}
+
+#individual-page-films .info-button {
+    display: none;
+}
+
+.card img {
+    border-radius: 5px;
+    transition: ease-in-out 0.2s;
+}
+
+.card img:hover {
+    border-radius: 4px 4px 0 0;
+    transition-delay: 0.5s;
+}
+
+.info-button {
+    margin-left: auto;
+    width: fit-content;
+    padding: 0;
+    height: fit-content;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    align-self: flex-start;
+}
+
 .card h3 {
     font-size: 0.9em;
     padding-top: 0.2em;
@@ -278,20 +299,28 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
     overflow: auto;
+    padding-top: 2em;
 
-  }
+}
 
-  .close-modal-button {
+.close-modal-button .fa-times-circle {
+    color: rgb(255, 255, 255, 0.8);
+    display: flex;
+
+}
+
+.fa-lg {
+    color: #fff;
+
+}
+
+.close-modal-button {
     position: absolute;
     top: 0;
     right: 0;
     padding: 10px;
     cursor: pointer;
-    font-size: 24px;
-    color: #333;
-  }
-  
-
+}
 
 .card:hover {
     z-index: 9997;
@@ -311,20 +340,41 @@ a:hover {
 
 
 }
-.close-modal-button {display:none;}
-.modal .close-modal-button {display:block;}
-.modal .card:hover {transform:none;}
-.modal {z-index: 9999;}
-.modal .film-details {display:flex;}
-.modal .card {max-width:95vw;margin:0 auto;justify-self: center;}
 
+.close-modal-button {
+    display: none;
+}
 
+.modal .close-modal-button {
+    display: block;
+}
+
+.modal .card:hover {
+    transform: none;
+}
+
+.modal {
+    z-index: 9999;
+}
+
+.modal .film-details {
+    display: flex;
+}
+
+.modal .card {
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-self: center;
+    padding-bottom: 4em;
+
+}
 
 .film-card-buttons {
     display: flex;
     flex-direction: row;
     gap: 1em;
     padding: 0.5em;
+    align-items: center;
 }
 
 .play-button,
@@ -339,10 +389,16 @@ a:hover {
     justify-content: center;
     align-items: center;
 }
-.fa-info-circle::before { display:block;   border-radius: 100%;
+
+.fa-info-circle::before {
+    display: block;
+    border-radius: 100%;
     width: 30px;
-    height: 30px; padding:1em;    color: white;border:none;
+    height: 30px;
+    padding: 1em;
+    border: none;
 }
+
 .play-button .fa-play {
     color: black;
 }
@@ -360,76 +416,125 @@ a:hover {
     font-weight: 500;
 }
 
-#viewAllButtons {
-    position: relative;
-    justify-self: center;
-    cursor: pointer;
+#individual-page-films {}
+
+#individual-page-films .card {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+
+#individual-page-films .card:hover {
+    transform: none;
+}
+
+#individual-page-films .film-details {
     display: flex;
-    flex-direction: row;
-    gap: 1em;
-    margin-bottom: 1em;
 }
 
-#viewAllLink.active .hide-in-view-all {
-    display: none;
+.mobile-nav-heading,
+.links a {
+    background-color: #212121;
+    ;
 }
 
-#viewAllCards .film-list {
-    display: grid;
-    grid-auto-rows: 200px;
+#category-list {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin: 0;
 }
-
-.list-view .film-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-    grid-auto-rows: 200px;
-    position: relative;
-}
-
-.grid-view .film-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2em;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100vh;
-}
-
-.grid-view .card {
-    transition: transform 0.3s ease-in-out, z-index 0.3s;
-}
-
-.list-view {
-    display: flex !important;
-    flex-direction: column;
-    gap: 5em;
-}
-
-#individual-film-container{}
-#individual-film-container .card {max-width:80vw;margin:0 auto;}
-
-
-#individual-film-container .card:hover {transform: none;}
-#individual-film-container .film-details {display:flex;}
 
 @media (max-width: 767px) {
+    .info-button {
+        display: none;
+    }
 
-    .topnav {display:none;}
+
+    .mobile-nav-container {
+        max-width: 480px;
+        background: #5555;
+        margin: auto;
+        position: absolute;
+        z-index: 9999;
+        width: 100vw;
+        display: flex;
+
+    }
+
+    .mobile-navbar {
+        background: white;
+        position: relative;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .heading a:nth-child(2) {
+        text-decoration: none;
+        font-size: 20px;
+        display: block;
+        padding: 7px;
+        margin-left: 150px;
+    }
+
+    .heading a i {
+        padding: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .heading a i:hover {
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    .links {
+        background-color: rgb(190, 196, 190);
+    }
+
+    .links a {
+        color: green;
+        padding: 5px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid white;
+    }
+
+    .links a:hover {
+        background-color: green;
+        color: white;
+    }
+
+    .topnav {
+        display: none;
+    }
+
     #wrapper {
         max-width: 600px;
     }
 
-  .card {max-width:95vw;}
+    .card {
+        max-width: 95vw;
+        transform: none !important;
+
+    }
+
     .card p,
     .film-card-buttons,
     .card h3 {
         background-color: #212121;
     }
 
-.film-details {display:flex !important;}
+    .film-details {
+        display: flex !important;
+    }
+
     .card h3 {
         font-size: 0.7em;
     }
@@ -439,10 +544,19 @@ a:hover {
         padding: 1em;
     }
 
+    .modal {
+        padding-top: 5em;
+    }
+
+    .modal .card {
+        max-width: 95vw;
+        margin: 0 auto;
+        justify-self: center;
+    }
+
     .film-list {
         position: relative !important;
         flex-direction: column;
-        flex-wrap: nowrap;
         margin: 0 auto;
     }
 
@@ -450,13 +564,38 @@ a:hover {
         background-color: transparent;
     }
 
+    #page-content .film-details {
+        display: none !important;
+    }
+
     .category-row {
-        grid-template-rows: auto;
-        padding-top:3em;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr;
+        margin-top: 2em;
     }
 
     .category-row h2 {
-padding-bottom: 1em;    }
+        padding-bottom: 1em;
+        grid-row: 1;
+    }
+
+    .categories-header-container {
+        display: none;
+    }
+
+    .modal-show .card {
+        display: flex !important;
+    }
+
+    .film-list {
+        grid-row: 2;
+        flex-direction: row;
+    }
+
+    .film-container {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
 
     .categories-header {
         padding: 0;
@@ -465,27 +604,10 @@ padding-bottom: 1em;    }
     .film-details {
         padding: 0;
     }
-
-    .viewAllLink-container {
-        margin: 0;
-    }
-
-    #viewAllCards .film-list {
-        display: flex;
-        align-items: center;
-        padding-top: 2em;
-    }
-
-    #viewAllButtons {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 1040px) {
 
-    #menuIcon.fa-bars {
-        z-index: 9999;
-    }
 
     #search-input {
         min-width: 123px;
@@ -499,37 +621,10 @@ padding-bottom: 1em;    }
         grid-column: 2;
         grid-row: 1;
     }
-
-    .search-container {
-        justify-self: left;
-        margin-left: 0;
-    }
 }
 
 @media screen and (max-width: 600px) {
     .result-container h2 {
         display: none;
-    }
-
-    #viewAllCards .film-list,
-    #result-row,
-    #viewAllCards .film-list,
-    .list-view .film-list {
-        padding-top: 2em;
-        display: grid;
-        grid-auto-rows: 250px;
-        margin: 0 auto;
-        justify-content: center;
-    }
-
-
-    #viewAllLink {
-        position: relative;
-        z-index: 9997;
-    }
-
-    .viewAllLinkReturn {
-        position: relative;
-        top: 70px;
     }
 }

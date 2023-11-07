@@ -1,0 +1,91 @@
+
+
+#favorites-page-films {
+    display: grid;
+    grid-auto-rows: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    flex-wrap: wrap;
+    gap: 0.7em;
+    margin-top: 1em;
+    position: relative;
+}
+
+
+
+.categories-header-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: flex-end;
+    width: 100%;
+    padding-bottom: 2.5em;
+}
+
+#categoriesHeader {
+    line-height: 1em;
+}
+
+.category-row h2 {
+
+    color: #fff;
+    font-size: 1.3em;
+    padding-bottom: 0.5em;
+    display: block;
+}
+
+.category-row {
+    display: grid;
+    grid-template-rows: 1fr 170px;
+
+}
+
+.film-list {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7em;
+}
+
+@media (max-width: 767px) {
+    .film-details {
+        display: flex !important;
+    }
+
+    .film-list {
+        position: relative !important;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .category-row {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr;
+        margin-top: 2em;
+    }
+
+    .category-row h2 {
+        padding-bottom: 1em;
+        grid-row: 1;
+    }
+
+    .categories-header-container {
+        display: none;
+    }
+
+    .film-list {
+        grid-row: 2;
+        flex-direction: row;
+    }
+
+    .film-container {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+
+    .categories-header {
+        padding: 0;
+    }
+
+    .result-container h2 {
+        display: none;
+    }
+}

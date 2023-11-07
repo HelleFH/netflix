@@ -25,7 +25,6 @@ function loadFavoriteFilmIDs() {
 }
 
 const favoriteFilmIDs = loadFavoriteFilmIDs();
-
 document.addEventListener("DOMContentLoaded", async () => {
   // Retrieve the film ID from local storage
   const selectedFilmId = parseInt(localStorage.getItem("selectedFilmId"), 10);
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (filmData) {
       // Import the film card template and populate it with the film data
-      const filmCardContainer = document.getElementById("individual-film-container");
+      const filmCardContainer = document.getElementById("individual-page-films");
       const filmCardHTML = filmCardTmpl(filmData);
 
       // Populate the film card container with the generated HTML
@@ -43,12 +42,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Attach a click event listener to the favorite button on the individual film page
       const favoriteButton = filmCardContainer.querySelector('.favorite-button');
-      const clickOrTouch = ("ontouchstart" in window) ? "touchend" : "click";
 
-      favoriteButton.addEventListener('clickOrTouch', (event) => {
-        event.stopPropagation(); // Prevent event propagation
-        handleFavoriteButtonClick(favoriteButton, filmData.Id);
-      });
+      // Call the handleFavoriteButtonClick function when the button is clicked
+
+// Determine the initial state of the button
+if (favoriteFilmIDs.has(filmData.Id)) {
+  favoriteButton.setAttribute('data-state', 'favorited');
+  favoriteButton.innerHTML = '<i class="fas fa-check"></i>';
+} else {
+  favoriteButton.setAttribute('data-state', 'unfavorited');
+  favoriteButton.innerHTML = '<i class="fas fa-plus"></i>';
+}
+
+favoriteButton.addEventListener(("ontouchstart" in window) ? "touchend" : "click", (event) => {
+  event.stopPropagation(); // Prevent event propagation
+  handleFavoriteButtonClick(favoriteButton, filmData.Id);
+});
+
     }
   } else {
     console.log("No selected film ID found in local storage.");

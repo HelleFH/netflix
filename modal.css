@@ -1,0 +1,93 @@
+.modal .card {
+    margin-bottom: 5em !important;
+}
+.modal .card p {
+    font-size: 1em;
+    padding:0;
+}
+
+.modal {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    overflow: auto;
+    padding-top: 2em;
+
+}
+
+.close-modal-button .fa-times-circle {
+    color: rgb(255, 255, 255, 0.8);
+    display: flex;
+
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.close-modal-button {
+    display: none;
+}
+
+.modal .close-modal-button {
+    display: block;
+}
+
+.modal .card:hover {
+    transform: none;
+}
+
+.modal {
+    z-index: 9999;
+}
+
+.modal .film-details {
+    display: flex;
+    padding: 1em 2em 4em 2em;
+
+}
+
+.modal .card {
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-self: center;
+    padding-bottom: 4em;
+
+}
+
+.modal .film-card-buttons {
+    padding-top: 0.7em;
+    padding-bottom: 1.6em;
+}
+
+@media (max-width: 767px) {
+    
+.modal .film-details {
+    display: flex;
+    padding: 1em;
+
+}
+    .modal {
+        padding-top: 5em;
+    }
+
+    .modal .card {
+        max-width: 95vw;
+        margin: 0 auto;
+        justify-self: center;
+    }
+
+    .modal-show .card {
+        display: flex !important;
+    }
+
+}

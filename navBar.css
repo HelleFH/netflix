@@ -1,0 +1,142 @@
+.topnav {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    width: 100%;
+    gap: 3em;
+    padding: 0 2em 0 2em;
+    font-size: 0.9em;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding-right: 1em;
+    position: fixed;
+    z-index: 9999;
+    background-color: #141414;
+    width: 100vw;
+    padding-right: 7em;
+
+}
+
+.navbar {
+    background-color: #141414;
+    transition: background-color 0.1s;
+}
+
+/* Styles for the scrolled state */
+.scrolled {
+    background-color: #212121;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.links a {
+    background-color: #141414;
+}
+
+#category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    font-size: 0.9em;
+    padding: 0.7em 0 0.7em 0.5em;
+    list-style: none;
+    text-align: left;
+    margin: 0;
+
+}
+
+.mobile-nav-container {
+    display: none;
+}
+
+.netflix-logo {
+    width: 120px;
+}
+
+.netflix-logo-mobile {
+    display: none
+}
+
+@media (max-width: 767px) {
+
+    nav {
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        padding-left: 1em;
+        padding-right: 0;
+    }
+
+    #burger-icon {}
+
+    .mobile-nav-container {
+        display: flex;
+        justify-self: left;
+
+    }
+
+    .netflix-logo-mobile {
+        display: flex;
+        max-width: 100px;
+        margin: 0 auto;
+    }
+
+    .mobile-navbar {
+        position: relative;
+        width: 0vw;
+        background-color: #212121;
+
+    }
+
+    .scrolled {
+        background-color: #141414;
+    }
+
+    .links {
+        display: none;
+        width: 60vw;
+        top: 50px;
+        position: absolute;
+        z-index: 9999;
+        left: 0;
+    }
+
+    .links p {
+        color: white;
+    }
+
+    .links a {
+        text-decoration: none;
+        font-size: 1em;
+        display: block;
+        text-align: left;
+        padding: 1em;
+        margin-bottom: -3px;
+        color: #808080;
+        background-color: #141414;
+
+
+    }
+
+    .links a:last-child {
+        border-radius: 10px;
+    }
+
+    .links a:hover {
+        color: white;
+    }
+
+    .topnav {
+        display: none;
+    }
+}

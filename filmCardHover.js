@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const pageContentElements = document.querySelectorAll('#page-content, #favorites-container');
-    const modal = document.getElementById('modal'); // Replace with your modal element
+    const pageContentElements = document.querySelectorAll('#page-content, #favorites-page-films');
 
     let selectedFilmCard = null;
     let hoverTimer;
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!isTouchDevice) {
             hoverTimer = setTimeout(() => {
                 showFilmDetails(filmCard);
-            }, 500); // Adjust the delay time (in milliseconds) as needed
+            }, 100); // Reduce the delay to 300 milliseconds (0.3 seconds)
         }
     };
 
@@ -25,7 +24,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             filmCard.querySelector('.film-details').style.display = 'block';
-            filmCard.style.transform = 'scale(1.2)';
+            filmCard.querySelector('.film-image-container img').style.display = '';
+
+            filmCard.style.transform = 'scale(1.5)';
             selectedFilmCard = filmCard;
 
             const description = filmCard.querySelector('.film-description');
@@ -52,14 +53,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-    const handleClick = (event) => {
-        if (selectedFilmCard && !selectedFilmCard.contains(event.target)) {
-            if (!(event.target.tagName === 'BUTTON' && event.target.closest('.modal'))) {
-                hideFilmDetails();
-            }
-        }
-    };
-
     pageContentElements.forEach((pageContent) => {
         if (!isTouchDevice) {
             pageContent.addEventListener('mouseover', (event) => {
@@ -68,13 +61,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     showFilmDetailsWithDelay(filmCard);
                 }
             });
-        }
 
-        pageContent.addEventListener('mouseout', (event) => {
-            if (event.relatedTarget && !event.relatedTarget.closest('.film-card')) {
-                hideFilmDetails();
-            }
-        });
+            pageContent.addEventListener('mouseout', (event) => {
+                if (event.relatedTarget && !event.relatedTarget.closest('.film-card')) {
+                    hideFilmDetails();
+                }
+            });
+        }
     });
 
     document.addEventListener('click', handleClick);
