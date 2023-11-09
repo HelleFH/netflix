@@ -1,0 +1,111 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.mobile-search-container {
+    display: none;
+}
+
+#search-container,
+#mobile-search-container {
+    width: 260px;
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    z-index: -1;
+    margin-left: auto;
+}
+
+#searchButton,
+#mobile-searchButton {
+    color: white;
+    cursor: pointer;
+    z-index: 9998;
+}
+
+#mobile-searchInput.active,
+#searchInput.active {
+    white-space: nowrap;
+    z-index: 9998;
+}
+
+#searchInput,
+#mobile-searchInput {
+    width: 0;
+    overflow: hidden;
+    min-width: 145px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    border: 1px white solid;
+    white-space: nowrap;
+    margin-left: -25px;
+    text-indent: 2.3em;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    -ms-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    transition: width 0.3s;
+    z-index: 9997;
+}
+
+.search-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+#searchResultFilms {
+    display: none;
+    /* Your other styles */
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+}
+
+.hidden {
+    display: none;
+    transition: opacity 200ms, display 200ms;
+
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 767px) {
+    #searchButton {
+        display: none;
+    }
+
+    #searchInput {
+        display: flex;
+        margin-left: 0;
+        min-width: 100px;
+        text-indent:0.1em;
+    }
+
+    .search-container {
+        margin-left: 0;
+    }
+}

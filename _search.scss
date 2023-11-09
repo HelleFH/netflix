@@ -19,18 +19,18 @@
     margin-left: auto;
 }
 
-#search-button {
+#searchButton {
     color: white;
     cursor: pointer;
     z-index: 9998;
 }
 
-#search-input.active {
+#searchInput.active {
     white-space: nowrap;
     z-index: 9998;
 }
 
-#search-input {
+#searchInput {
     width: 0;
     overflow: hidden;
     min-width: 145px;
@@ -57,7 +57,7 @@
     align-items: center;
 }
 
-#search-result-films {
+#searchResultFilms {
     display: grid;
     grid-auto-rows: 200px;
     grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));

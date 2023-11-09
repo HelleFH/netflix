@@ -1,0 +1,29 @@
+
+.card img:hover {
+    border-radius: 4px 4px 0 0;
+}
+
+.card:hover h2 {
+    font-size: 1em;
+}
+
+.card:hover .play-button {
+    width: 20px;
+    height: 20px;
+}
+
+.card:hover .favorite-button {
+    width: 20px;
+    height: 20px;
+}
+
+.card:hover {
+    z-index: 9999;
+    position: relative;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.film-details:hover {
+    width: 100%;
+    transform: scale (1) !important;
+}

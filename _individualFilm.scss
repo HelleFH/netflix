@@ -1,24 +1,24 @@
 
-#individual-page-films .info-button {
+#individualPageFilms .info-button {
     display: none;
 }
 
-#individual-page-films {}
+#individualPageFilms {}
 
-#individual-page-films .card {
+#individualPageFilms .card {
     max-width: 80vw;
     margin: 0 auto;
 }
 
 
-#individual-page-films .card:hover {
+#individualPageFilms .card:hover {
     transform: none;
 }
 
-#individual-page-films .film-details {
+#individualPageFilms .film-details {
     display: flex;
 }
 @media (max-width: 767px) {
-    #search-input {
+    #searchInput {
         min-width: 123px;
     }}

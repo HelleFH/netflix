@@ -1,0 +1,168 @@
+[
+    {
+      "Id": 1,
+      "Title": "All Quiet on the Western Front",
+      "Description": "A classic war film depicting the harrowing experiences of young soldiers during World War I. Follow the journey of Paul Bäumer as he navigates the frontlines of a brutal conflict, where the ideals of patriotism are shattered by the harsh reality of war. This thought-provoking and emotionally charged movie is a powerful reminder of the human cost of war.",
+      "Image": "/all-quiet-on-the-western-front.jpg",
+      "Category": "War",
+      "ReleaseYear": 1930,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 2,
+      "Title": "American Gangster",
+      "Description": "A crime drama based on the true story of a drug lord and a determined detective in 1970s Harlem. Frank Lucas, a notorious drug lord, rises to power, leading to an intense cat-and-mouse game with Richie Roberts, an incorruptible detective. This gripping tale explores the complexities of crime, power, and justice.",
+      "Image": "/images/american-gangster.jpg",
+      "Category": "Crime",
+      "ReleaseYear": 2007,
+      "ageRating": "R"
+    },
+    {
+      "Id": 3,
+      "Title": "Fight Club",
+      "Description": "An underground fight club spirals into chaos, exploring the dark side of consumerism and identity. Join the nameless narrator as he forms an underground fight club with the charismatic Tyler Durden. As the club evolves into a violent anarchist movement, it challenges societal norms and perceptions in this mind-bending film.",
+      "Image": "/images/fight-club.jpg",
+      "Category": "Drama",
+      "ReleaseYear": 1999,
+      "ageRating": "R"
+    },
+    {
+      "Id": 4,
+      "Title": "Grease",
+      "Description": "A musical romantic comedy set in the 1950s, following the love story of Sandy and Danny. Join the Pink Ladies and T-Birds at Rydell High as they sing and dance their way through the challenges of teenage romance. This feel-good classic explores the ups and downs of young love through catchy songs and electrifying dance numbers.",
+      "Image": "/images//grease.jpg",
+      "Category": "Musical",
+      "ReleaseYear": 1978,
+      "ageRating": "PG"
+    },
+    {
+      "Id": 5,
+      "Title": "The Hunger Games",
+      "Description": "In a dystopian future, Katniss Everdeen volunteers to take her sister's place in a brutal televised fight for survival. Enter the dystopian world of Panem, where teenagers are forced to compete in the deadly Hunger Games. Katniss Everdeen, a symbol of rebellion, takes on the Capitol in a fight for survival and freedom.",
+      "Image": "/images//the-hunger-games.jpg",
+      "Category": "Science Fiction",
+      "ReleaseYear": 2012,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 6,
+      "Title": "Pride and Prejudice",
+      "Description": "Jane Austen's classic tale of love and manners in early 19th-century England. Journey into the world of Elizabeth Bennet and Mr. Darcy as they navigate societal expectations and misconceptions on the path to love. This beloved story explores themes of class, marriage, and the complexities of human relationships.",
+      "Image": "/images//pride-and-prejudice.jpg",
+      "Category": "Romance",
+      "ReleaseYear": 2005,
+      "ageRating": "PG"
+    },
+    {
+      "Id": 7,
+      "Title": "Shrek 2",
+      "Description": "Shrek and Fiona visit Fiona's parents, leading to hilarious adventures in Far Far Away. Join Shrek, Donkey, and Puss in Boots as they embark on a journey to visit Fiona's parents. This animated comedy brings new characters, hilarious encounters, and a dose of Shrek's signature humor.",
+      "Image": "/images//shrek-2.jpg",
+      "Category": "Animated",
+      "ReleaseYear": 2004,
+      "ageRating": "PG"
+    },
+    {
+      "Id": 8,
+      "Title": "Straight Outta Compton",
+      "Description": "The rise and impact of the rap group N.W.A in the turbulent streets of Compton, California. Discover the origins of N.W.A, the iconic rap group, as they break barriers and revolutionize the music industry. This biographical drama is a compelling portrayal of their journey and the cultural impact of their music.",
+      "Image": "/images//straight-outta-compton.jpg",
+      "Category": "Biography",
+      "ReleaseYear": 2015,
+      "ageRating": "R"
+    },
+    {
+      "Id": 9,
+      "Title": "The Two Popes",
+      "Description": "A fictionalized account of the relationship between Pope Benedict XVI and Cardinal Jorge Bergoglio (Pope Francis). Delve into the intriguing dynamics between two influential figures in the Catholic Church. This biographical drama offers a glimpse into their conversations, beliefs, and the future of the church.",
+      "Image": "/images//the-two-popes.jpg",
+      "Category": "Biography",
+      "ReleaseYear": 2019,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 10,
+      "Title": "The Wolf of Wall Street",
+      "Description": "The outrageous true story of Jordan Belfort's rise and fall as a stockbroker, filled with excess and corruption. Follow Jordan Belfort's meteoric rise and tumultuous fall in the high-stakes world of stockbroking. This dark comedy is a wild ride through greed, debauchery, and the consequences of excess.",
+      "Image": "/images//the-wolf-of-wall-street.jpg",
+      "Category": "Comedy",
+      "ReleaseYear": 2013,
+      "ageRating": "R"
+    },
+    {
+      "Id": 11,
+      "Title": "1917",
+      "Description": "During World War I, two British soldiers are given a seemingly impossible mission: cross enemy lines to deliver a message that could save 1,600 lives. Join Lance Corporals Schofield and Blake as they embark on a treacherous journey to prevent a massacre. This gripping war drama unfolds in real-time, offering an immersive experience.",
+      "Image": "/images//1917.jpg",
+      "Category": "War",
+      "ReleaseYear": 2019,
+      "ageRating": "R"
+    },
+    {
+      "Id": 12,
+      "Title": "The Irishman",
+      "Description": "A mob hitman recalls his involvement with the disappearance of Jimmy Hoffa, a powerful union leader, in this epic crime drama directed by Martin Scorsese. Delve into the world of organized crime as Frank Sheeran, a mob hitman, recounts his life's story, including his ties to the enigmatic Jimmy Hoffa. This epic crime drama spans decades and offers a glimpse into a hidden world.",
+      "Image": "/images//the-irishman.jpg",
+      "Category": "Crime",
+      "ReleaseYear": 2019,
+      "ageRating": "R"
+    },
+    {
+      "Id": 13,
+      "Title": "Inception",
+      "Description": "A mind-bending science fiction thriller where a thief enters people's dreams to steal their deepest secrets. Join Dom Cobb, a skilled thief who enters the subconscious of his targets to steal their secrets. This mind-bending journey through dreams blurs the line between reality and imagination in a world of infinite possibilities.",
+      "Image": "/images//inception.jpg",
+      "Category": "Science Fiction",
+      "ReleaseYear": 2010,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 14,
+      "Title": "To All the Boys I've Loved Before",
+      "Description": "A teenage girl's secret love letters are exposed, leading to unexpected romantic adventures. Follow the romantic escapades of Lara Jean Covey as her secret love letters are mysteriously sent to her past crushes. This heartwarming teen romance explores love, relationships, and the complexities of growing up.",
+      "Image": "/images//to-all-the-boys.jpg",
+      "Category": "Romance",
+      "ReleaseYear": 2018,
+      "ageRating": "PG"
+    },
+    {
+      "Id": 15,
+      "Title": "La La Land",
+      "Description": "A jazz musician and an aspiring actress fall in love while pursuing their dreams in Los Angeles. Experience the beauty of music and love in this modern musical masterpiece.",
+      "Image": "/images//la-la-land.jpg",
+      "Category": "Musical",
+      "ReleaseYear": 2016,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 16,
+      "Title": "Superbad",
+      "Description": "Two high school friends embark on a hilarious adventure to obtain alcohol for a party. Join them in this coming-of-age comedy filled with laughter, friendship, and awkward moments.",
+      "Image": "/images//superbad.jpg",
+      "Category": "Comedy",
+      "ReleaseYear": 2007,
+      "ageRating": "R"
+    },
+    {
+      "Id": 17,
+      "Title": "The Shawshank Redemption",
+      "Description": "An innocent man is sentenced to life in prison, where he forms enduring friendships and attempts to escape. Witness the power of hope, friendship, and resilience in this gripping drama.",
+      "Image": "/images//shawshank-redemption.jpg",
+      "Category": "Drama",
+      "ReleaseYear": 1994,
+      "ageRating": "R"
+    },
+    {
+      "Id": 18,
+      "Title": "Zootopia",
+      "Description": "In a city of anthropomorphic animals, a bunny cop teams up with a slick fox to solve a mysterious case. Join them on an adventure of solving a crime that uncovers deep societal issues.",
+      "Image": "/images//zootopia.jpg",
+      "Category": "Animated",
+      "ReleaseYear": 2016,
+      "ageRating": "PG"
+    }
+    
+    
+    
+  ]
+  
