@@ -16,7 +16,7 @@ async function displayFavoriteFilms() {
     const favLocalStorage = JSON.parse(localStorage.getItem('favoriteFilmIDs')) || [];
 
     if (favLocalStorage.length === 0) {
-      favoritesContainer.innerHTML = 'You have no favorite films.';
+      favoritesContainer.innerHTML = 'Your list is empty';
       return;
     }
 
