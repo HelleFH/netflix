@@ -1,0 +1,22 @@
+
+#individualPageFilms .info-button {
+    display: none;
+}
+
+#individualPageFilms .card {
+    max-width: 95vw;
+    margin: 0 auto;
+    padding:2em;
+    background-color: #212121;
+    border-radius: 2px;
+}
+
+
+#individualPageFilms .film-details {
+    display: flex;
+}
+#individualPageFilms p {font-size:1em;}
+@media (max-width: 767px) {
+    #searchInput {
+        min-width: 123px;
+    }}
