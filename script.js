@@ -1,5 +1,5 @@
 import { createFilmCard } from "./components/cards/createFilmCard.js";
-import { displayFilmsByCategory, initializeDropdowns} from "displayFilmsByCategory.js"
+import { displayFilmsByCategory, initializeDropdowns} from "./displayFilmsByCategory.js"
 import { initializeSearch } from "search.js";
 import service from './data.service.js';
 

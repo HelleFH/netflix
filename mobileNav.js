@@ -1,4 +1,4 @@
-import service from "data.service.js";
+import service from "./data.service.js";
 
 
 const navbar = document.querySelector('.navbar');
