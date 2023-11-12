@@ -1,4 +1,4 @@
-import { createFilmCard } from "./createfilmcard.js";
+import { createFilmCard } from "./createFilmCard.js";
 import service from './data.service.js';
 import { initializeSearch } from "./search.js";
 
