@@ -1,5 +1,5 @@
 import { createFilmCard } from "createFilmCard.js";
-import service from 'data.service.js';
+import service from './data.service.js';
 import { initializeSearch } from "search.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
