@@ -1,5 +1,5 @@
-import service from "../../Data/data.service.js";
-import { createFilmCard } from "/components/cards/createFilmCard.js";
+import service from "data.service.js";
+import { createFilmCard } from "createFilmCard.js";
 
 const filmsData = await service.getFilms();
 
