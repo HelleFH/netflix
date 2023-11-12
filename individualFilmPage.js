@@ -1,5 +1,5 @@
-import { createFilmCard } from "/components/cards/createFilmCard.js";
-import service from '/data/data.service.js';
+import { createFilmCard } from "createFilmCard.js";
+import service from 'data.service.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Retrieve the film ID from local storage

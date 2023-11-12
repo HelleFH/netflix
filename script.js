@@ -1,7 +1,7 @@
 import { createFilmCard } from "./components/cards/createFilmCard.js";
-import { displayFilmsByCategory, initializeDropdowns} from "./components/dropdowns/displayFilmsByCategory.js"
-import { initializeSearch } from "/components/search/search.js";
-import service from '/Data/data.service.js';
+import { displayFilmsByCategory, initializeDropdowns} from "displayFilmsByCategory.js"
+import { initializeSearch } from "search.js";
+import service from 'data.service.js';
 
 const app = {};
 let filmsData;

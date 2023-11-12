@@ -2,7 +2,7 @@ const service = {};
 
 service.getFilms = async () => {
     try {
-        const response = await fetch("../../data/films.json");
+        const response = await fetch("films.json");
         const products = await response.json();
         return products;
     } catch (error) {
