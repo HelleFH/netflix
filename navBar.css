@@ -44,17 +44,13 @@ nav {
 #categoryList {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.7em;
     font-size: 0.9em;
-    padding: 0.7em 0 0.7em 0.5em;
+    padding: 0.7em 0 1em 0.5em;
     list-style: none;
     text-align: left;
     margin: 0;
 
-}
-
-.mobile-nav-container {
-    display: none;
 }
 
 .netflix-logo {
@@ -103,7 +99,6 @@ nav {
     }
 
     .links {
-        display: none;
         width: 60vw;
         top: 50px;
         position: absolute;
@@ -117,7 +112,7 @@ nav {
 
     .links a {
         text-decoration: none;
-        font-size: 1em;
+        font-size: 1.2em;
         display: block;
         text-align: left;
         padding: 1em;
@@ -132,9 +127,6 @@ nav {
         border-radius: 10px;
     }
 
-    .links a:hover {
-        color: white;
-    }
 
     .topnav {
         display: none;

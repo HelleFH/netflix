@@ -20,7 +20,7 @@ export function createFilmCard(film) {
     favoriteButton.innerHTML = '<i class="fas fa-check"></i>';
   } else {
     favoriteButton.setAttribute('data-state', 'unfavorited');
-    favoriteButton.innerHTML = '<i class="fas fa-plus"></i>';
+    favoriteButton.innerHTML = '<i class="fas fa-plus fa-xl"></i>';
   }
 
   favoriteButton.addEventListener('click', () => {
@@ -34,7 +34,7 @@ export function createFilmCard(film) {
     } else {
       favoriteFilmIDs.delete(filmId);
       favoriteButton.setAttribute('data-state', 'unfavorited');
-      favoriteButton.innerHTML = '<i class="fas fa-plus"></i>';
+      favoriteButton.innerHTML = '<i class="fas fa-plus fa-xl"></i>';
     }
 
     localStorage.setItem('favoriteFilmIDs', JSON.stringify(Array.from(favoriteFilmIDs)));

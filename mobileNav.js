@@ -41,15 +41,7 @@ async function populateCategories() {
 }
 
 // Function to handle burger menu icon click
-function handleBurgerMenu() {
-  const burgerIcon = document.getElementById('burgerIcon');
-  const mobileMenu = document.querySelector('.links');
 
-  burgerIcon.addEventListener('click', () => {
-    mobileMenu.style.height = mobileMenu.style.height === '100%' ? '0' : '100%';
-  });
-}
 
 // Call the functions where needed
 populateCategories();
-handleBurgerMenu();

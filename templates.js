@@ -1,7 +1,7 @@
 export const filmCardTmpl = (film) => `
   <div class="film-card card">
     <span class="close-modal-button">
-      <i class="far fa-times-circle fa-lg"></i>
+      <i class="far fa-times-circle fa-xl"></i>
     </span>
     <div class="film-image-container">
       <img src="${film.Image}" class="film-image" alt="${film.Title}" data-id="${film.Id}">
@@ -11,10 +11,10 @@ export const filmCardTmpl = (film) => `
       <p class="film-release-year">${film.ReleaseYear}</p>
       <div class="film-card-buttons">
         <div class="play-button">
-          <i class="fa-solid fa-play fa-sm"></i>
+          <i class="fa-solid fa-play fa-lg"></i>
         </div>
         <button class="favorite-button" data-id="${film.Id}" data-state="unfavorited">
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-plus fa-xl"></i>
         </button>
         <button class="info-button">
           <i class="fa-solid fa-circle-info" data-id="${film.Id}"></i>

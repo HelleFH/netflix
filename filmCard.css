@@ -66,6 +66,7 @@
     color: #212121;
 
 }
+.fa-play {padding-left:0.1em;}
 
 .info-button {
     margin-left: auto;
@@ -123,6 +124,14 @@
         background-color: #212121;
     }
 
+    .play-button,
+    .favorite-button,
+    .remove-favorite-button {
+
+        width: 35px;
+        height: 35px;
+  
+    }
 
     .card p {
         font-size: 0.7em;
