@@ -8,7 +8,7 @@ function handleInfoButtonClick(event) {
       localStorage.setItem('selectedFilmId', filmId);
   
       // Navigate to the individual film page using the film ID
-      window.location.href = `/pages/individual-film-page/individualFilmPage.html`; // Change the path to match your setup
+      window.location.href = `./individualFilmPage.html`; // Change the path to match your setup
     }
   }
   
