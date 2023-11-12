@@ -1,6 +1,6 @@
-import { createFilmCard } from "createFilmCard.js";
+import { createFilmCard } from "./createFilmCard.js";
 import service from './data.service.js';
-import { initializeSearch } from "search.js";
+import { initializeSearch } from "./search.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
   const selectedCategory = localStorage.getItem('selectedCategory');

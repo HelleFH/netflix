@@ -1,4 +1,4 @@
-import { createFilmCard } from "createFilmCard.js";
+import { createFilmCard } from "./createfilmcard.js";
 import service from './data.service.js';
 
 document.addEventListener("DOMContentLoaded", async () => {

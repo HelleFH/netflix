@@ -18,7 +18,7 @@ categoryList.addEventListener('click', (event) => {
 
     localStorage.setItem('selectedCategory', selectedCategory);
 
-    window.location.href = '/pages/category-page/categoryPage.html';
+    window.location.href = './categoryPage.html';
   }
 });
 

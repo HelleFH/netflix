@@ -1,4 +1,4 @@
-import { filmCardTmpl } from "templates.js";
+import { filmCardTmpl } from "./templates.js";
 
 // Load favorite film IDs once
 const favoriteFilmIDs = loadFavoriteFilmIDs();
