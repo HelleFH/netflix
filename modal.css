@@ -76,9 +76,9 @@
     }
 
     .modal .card {
-        max-width: 95vw;
-        margin: 0 auto;
+        width: 96vw;
         justify-self: center;
+        position:fixed;
     }
 
     .modal-show .card {

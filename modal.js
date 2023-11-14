@@ -12,12 +12,15 @@ async function openFilmModal(filmId) {
     const modalFilmCard = createFilmCard(selectedFilm);
 
     // Create modal and append the film card
+    const modalContainer = document.createElement('div');
+    modalContainer.classList.add('modal-container');
     const modal = document.createElement('div');
     modal.classList.add('modal');
     modal.classList.add('show');
     modal.appendChild(modalFilmCard);
 
-    document.body.appendChild(modal);
+    modalContainer.appendChild(modal)
+    document.body.appendChild(modalContainer);
 
     const touchstartEvent = isTouchDevice ? "touchstart" : "click";
     const touchendEvent = isTouchDevice ? "touchend" : "click";
@@ -25,7 +28,7 @@ async function openFilmModal(filmId) {
     const closeModalButton = modal.querySelector('.close-modal-button');
     closeModalButton.addEventListener(touchendEvent, () => {
       modal.removeChild(modalFilmCard);
-      document.body.removeChild(modal);
+      document.body.removeChild(modalContainer);
     });
   }
 }
