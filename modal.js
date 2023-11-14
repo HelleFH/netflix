@@ -29,13 +29,26 @@ async function openFilmModal(filmId) {
 
 const pageContent = document.getElementById('pageContent');
 const clickOrTouch = ("ontouchstart" in window) ? "touchend" : "click";
-
-pageContent.addEventListener(clickOrTouch, (event) => {
+pageContent.addEventListener(touchstartEvent, (event) => {
   if (event.target.tagName === 'IMG') {
     const filmId = event.target.getAttribute('data-id');
 
     if (filmId) {
-      openFilmModal(parseInt(filmId, 10));
+      // Start a timer for long touch
+      const longTouchTimer = setTimeout(() => {
+        // Long touch action (open modal, for example)
+        openFilmModal(parseInt(filmId, 10));
+      }, 500); // Adjust the duration as needed
+
+      // Listen for touchend event to clear the timer
+      const touchEndHandler = () => {
+        clearTimeout(longTouchTimer);
+        // Remove the touchend event listener
+        document.removeEventListener(touchendEvent, touchEndHandler);
+      };
+
+      // Add the touchend event listener
+      document.addEventListener(touchendEvent, touchEndHandler);
     }
   }
 });
