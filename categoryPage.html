@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Netflix Clone</title>
-        <link rel="stylesheet" href="./filmCard.css">
-        <link rel="stylesheet" href="./filmCardContainers.css">
-        <link rel="stylesheet" href="./style.css">
-    
-        <link rel="stylesheet" href="./modal.css">
-    
-        <link rel="stylesheet" href="./navBar.css">
-    
-        <link rel="stylesheet" href="./search.css">
-    
-        <link rel="stylesheet" href="./dropDowns.css">
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-    
-    <body>
-        <div id="wrapper">
-            <header>
-                <nav class="navbar">
-                    <div class="mobile-nav-container">
-    
-                        <a id="burgerIcon" href="#hamburgerIcon" onclick="gfgMenu()">
-                         
-                            <i class="fa fa-bars fa-xl"></i>
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="filmCard.css">
+    <link rel="stylesheet" href="filmCardContainers.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="modal.css">
+
+    <link rel="stylesheet" href="navBar.css">
+
+    <link rel="stylesheet" href="search.css">
+
+    <link rel="stylesheet" href="dropDowns.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <nav class="navbar">
+                <div class="mobile-nav-container">
+
+                    <a id="burgerIcon" href="#hamburgerIcon" onclick="gfgMenu()">
+                       <script> function gfgMenu() {
+                            const GFG = document.querySelector('.links');
+                          
+                            if (GFG.style.display === "none") {
+                                GFG.style.display = "block";
+                            }
+                            else {
+                                GFG.style.display = "none";
+                            }
+                          }
+                        </script>
+                        <i class="fa fa-bars fa-lg"></i>
+
+                    </a>
+
+                    <div class="links" style="display:none;">
+                        <a href="./index.html"> Home </a>
+                        <a href="myList.html"> My List </a>
+                        <a>
+                            <p>Genres</p>
+                            <ul id="categoryList"></ul>
                         </a>
-    
-                        <div class="links">
-                            <a href="./index.html"> Home </a>
-                            <a href="./myList.html"> My List </a>
-                            <a>
-                                <p>Genres</p>
-                                <ul id="categoryList"></ul>
-                            </a>
-                        </div>
                     </div>
-    
-                    <ul class="topnav">
-                        <a class="netflix-logo" href="./index.html" class="active"> <img src="./images/logo.png"></a>
-                        <a href="./index.html">Start</a>
-                        <a href="#">Films</a>
-                        <a href="./myList.html">My List</a>
-                    </ul>
-                    <a class="netflix-logo-mobile" href="/index.html" class="active"> <img src="./images/logo.png"></a>
-    
-                    <div class="search-container">
-                        <div class="searchButton" id="searchButton">
-                            <i class="fas fa-search fa-lg"></i>
-                        </div>
-                        <input type="text" id="searchInput" placeholder="Search all titles" class="hidden">
+                </div>
+
+                <ul class="topnav">
+                    <a class="netflix-logo" href="./index.html" class="active"> <img src="./images/logo.png"></a>
+                    <a href="./index.html">Start</a>
+                    <a href="#">Films</a>
+                    <a href="./myList.html">My List</a>
+                </ul>
+                <a class="netflix-logo-mobile" href="./index.html" class="active"> <img src="./images/logo.png"></a>
+
+                <div class="search-container">
+                    <div class="searchButton" id="searchButton">
+                        <i class="fas fa-search fa-lg"></i>
                     </div>
-    
-                </nav>
+                    <input type="text" id="searchInput" placeholder="Search all titles" class="hidden">
+                </div>
+
+            </nav>
+
                 <script>
                    
                 </script>
@@ -70,14 +81,15 @@
         
         <div id="pageContent">
             
-            <div class="result-container" id="resultContainer">
-                <div id="searchResultFilms">
-                </div>
+          
+        <div class="result-container" id="resultContainer">
+            <div id="searchResultFilms">
             </div>
+        </div>
             <div id="searchableContent">
 
             <h2 class="category-page-header"></h2>
-            <section id="categoryPageFilms">
+            <section id="categoryPageFilms" class="film-container">
                 <!-- Films from the selected category will be displayed here -->
             </section>
         </div>
@@ -96,6 +108,8 @@
 <script src="./filmDescriptionMobile.js"></script>
 
 <script type="module"  src="./mobileNav.js"></script>
+
+<script type="module"  src="./search.js"></script>
 
 
 

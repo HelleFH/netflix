@@ -21,13 +21,12 @@ async function openFilmModal(filmId) {
 
     const closeModalButton = modal.querySelector('.close-modal-button');
     closeModalButton.addEventListener(clickOrTouch, () => {
+      modal.removeChild(modalFilmCard);
       document.body.removeChild(modal);
-      location.reload();
     });
   }
 }
 
-// Assuming clickOrTouch is defined somewhere in your code
 const pageContent = document.getElementById('pageContent');
 const clickOrTouch = ("ontouchstart" in window) ? "touchend" : "click";
 

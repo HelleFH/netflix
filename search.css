@@ -63,22 +63,11 @@
 
 #searchResultFilms {
     display: none;
-    /* Your other styles */
-}
-
-.result-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
-    align-self: center;
-    justify-self: center;
 }
 
 .hidden {
     display: none;
     transition: opacity 200ms, display 200ms;
-
 }
 
 @keyframes slide-in {

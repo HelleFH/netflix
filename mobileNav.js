@@ -40,7 +40,7 @@ async function populateCategories() {
   }
 }
 
-// Function to handle burger menu icon click
+
 
 
 // Call the functions where needed

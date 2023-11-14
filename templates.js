@@ -4,17 +4,17 @@ export const filmCardTmpl = (film) => `
       <i class="far fa-times-circle fa-xl"></i>
     </span>
     <div class="film-image-container">
-      <img src="${film.Image}" class="film-image" alt="${film.Title}" data-id="${film.Id}">
+    <img src="${film?.Image}" class="film-image" alt="${film?.Title}" data-id="${film?.Id}">
     </div>
     <div class="film-details">
       <h2>${film.Title}</h2>
       <p class="film-release-year">${film.ReleaseYear}</p>
       <div class="film-card-buttons">
         <div class="play-button">
-          <i class="fa-solid fa-play fa-lg"></i>
+          <i class="fa-solid fa-play"></i>
         </div>
         <button class="favorite-button" data-id="${film.Id}" data-state="unfavorited">
-          <i class="fas fa-plus fa-xl"></i>
+          <i class="fas fa-plus fa-lg"></i>
         </button>
         <button class="info-button">
           <i class="fa-solid fa-circle-info" data-id="${film.Id}"></i>

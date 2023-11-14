@@ -1,5 +1,6 @@
 import { createFilmCard } from "./createFilmCard.js";
 import service from './data.service.js';
+import { initializeSearch } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Retrieve the film ID from local storage
@@ -20,8 +21,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Attach a click event listener to the favorite button on the individual film page
     }
+    initializeSearch(filmData); // Pass filmData as an argument
   } else {
     console.log("No selected film ID found in local storage.");
     // Handle the case where no film ID is found in local storage
   }
+  
 });

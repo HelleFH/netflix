@@ -160,6 +160,96 @@
       "Category": "Animated",
       "ReleaseYear": 2016,
       "ageRating": "PG"
+    },
+    {
+      "Id": 19,
+      "Title": "Saving Private Ryan",
+      "Description": "Follow Captain John Miller and his squad as they embark on a mission to find and bring home Private James Ryan, the last surviving brother of four servicemen. This intense and realistic war film captures the brutality and sacrifices of World War II.",
+      "Image": "images/saving-private-ryan.jpg",
+      "Category": "War",
+      "ReleaseYear": 1998,
+      "ageRating": "R"
+    },
+    {
+      "Id": 20,
+      "Title": "Apocalypse Now",
+      "Description": "In the midst of the Vietnam War, Captain Willard is sent on a dangerous mission to assassinate Colonel Kurtz, who has gone rogue. This epic war film explores the darkness of war and the psychological impact on those involved.",
+      "Image": "images/apocalypse-now.jpg",
+      "Category": "War",
+      "ReleaseYear": 1979,
+      "ageRating": "R"
+    },
+    {
+      "Id": 21,
+      "Title": "The Godfather",
+      "Description": "Don Vito Corleone, the patriarch of a powerful Mafia family, navigates the challenges of organized crime while passing the torch to his reluctant son Michael. This timeless crime drama explores power, family, and the consequences of choices.",
+      "Image": "images/the-godfather.jpg",
+      "Category": "Crime",
+      "ReleaseYear": 1972,
+      "ageRating": "R"
+    },
+    {
+      "Id": 22,
+      "Title": "Heat",
+      "Description": "A group of professional bank robbers faces off against a dedicated detective in this intense crime thriller. Heat explores the line between law and crime, featuring complex characters on both sides of the law.",
+      "Image": "images/heat.jpg",
+      "Category": "Crime",
+      "ReleaseYear": 1995,
+      "ageRating": "R"
+    },
+    {
+      "Id": 23,
+      "Title": "The Social Network",
+      "Description": "Explore the founding of Facebook and the complex relationships and legal battles that arise among its creators. This gripping drama delves into ambition, betrayal, and the impact of social media on society.",
+      "Image": "images/the-social-network.jpg",
+      "Category": "Drama",
+      "ReleaseYear": 2010,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 24,
+      "Title": "A Beautiful Mind",
+      "Description": "Follow the life of mathematician John Nash as he battles schizophrenia and strives to make groundbreaking contributions to the field of mathematics. This biographical drama explores the triumph of the human spirit.",
+      "Image": "images/a-beautiful-mind.jpg",
+      "Category": "Biography",
+      "ReleaseYear": 2001,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 25,
+      "Title": "Moulin Rouge!",
+      "Description": "Set in the bohemian underworld of Paris, Moulin Rouge! tells the story of a young poet who falls in love with a beautiful cabaret actress. This visually stunning musical is a celebration of love, passion, and creativity.",
+      "Image": "images/moulin-rouge.jpg",
+      "Category": "Musical",
+      "ReleaseYear": 2001,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 26,
+      "Title": "Chicago",
+      "Description": "Jazz-age Chicago serves as the backdrop for this musical about crime, celebrity, and the pursuit of fame. Chicago is a dazzling and provocative exploration of the allure of the spotlight.",
+      "Image": "images/chicago.jpg",
+      "Category": "Musical",
+      "ReleaseYear": 2002,
+      "ageRating": "PG-13"
+    },
+    {
+      "Id": 27,
+      "Title": "Blade Runner",
+      "Description": "In a dystopian future, a blade runner must track down and terminate rogue replicants. This iconic science fiction film explores the nature of humanity, artificial intelligence, and morality.",
+      "Image": "images/blade-runner.jpg",
+      "Category": "Science Fiction",
+      "ReleaseYear": 1982,
+      "ageRating": "R"
+    },
+    {
+      "Id": 28,
+      "Title": "The Matrix",
+      "Description": "A computer hacker discovers a world of rebels fighting against powerful machines. The Matrix is a groundbreaking science fiction film that challenges the nature of reality and explores the power of choice.",
+      "Image": "images/the-matrix.jpg",
+      "Category": "Science Fiction",
+      "ReleaseYear": 1999,
+      "ageRating": "R"
     }
     
     

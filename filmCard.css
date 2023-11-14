@@ -1,16 +1,19 @@
-.card {
+.hover-cards-container .card {
     display: grid;
     cursor: pointer;
-    min-width: 150px;
+    min-width: 175px;
     max-width: 200px;
     position: relative;
     transition: ease-in 0.2s;
     z-index: 9996;
+    height: 112px;
+    overflow: hidden;
 
 }
 
+
 .card img {
-    border-radius: 1px;
+    border-radius: 4px;
 }
 
 .card p {
@@ -24,11 +27,11 @@
 }
 
 .film-details {
-    display: none;
+    display: flex;
     flex-direction: column;
     padding: 0 0.6em 0.6em 0.6em;
     background-color: #212121;
-    border-radius: 0 0 2px 2px;
+    border-radius: 0 0 4px 4px;
     position: relative;
 }
 
@@ -66,7 +69,11 @@
     color: #212121;
 
 }
-.fa-play {padding-left:0.1em;}
+
+.fa-play {
+    padding-left: 0.1em;
+
+}
 
 .info-button {
     margin-left: auto;
@@ -84,29 +91,68 @@
 
 }
 
-.film-container .card h2 {
+.hover-cards-container .card h2 {
     font-size: 0.7em;
 }
 
-.film-container .card img:hover {
-    border-radius: 2px 2px 0 0;
+.hover-cards-container  .card img:hover {
+    border-radius: 4px 4px 0 0;
 }
 
-.film-container .card:hover {
+.hover-cards-container .film-card-container.hovered {
     z-index: 9999;
     position: relative;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transform-origin: center bottom;
+    transform: scale(1.35);
+    transition: ease-in-out 0.3s, opacity 0.3s ease, visibility 0.6s, ease .3s;
+    transition-delay: 0.7s;
+}
+.card:hover {
+    overflow: visible;
+    height: fit-content
 }
 
+.film-card-container {
+    transition: transform 0.3s ease-out;
+}
 
-.modal .card:hover {
+.hover-cards-container .film-details {
+    visibility: hidden;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
+}
+
+.film-description {
+    padding: 0.5em 0 0.5em
+}
+
+.hover-cards-container .hovered img {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition-delay: 0.7s;
+
+}
+
+.hover-cards-container img:hover {
+    border-radius: 4px 4px 0 0;
+}
+
+.hover-cards-container .film-list .first-card {
+    transform-origin: left bottom !important;
+}
+
+.modal.card:hover {
     transform: none !important;
+}
+
+.hover-cards-container .film-card-container:not(.film-details).hovered .film-details {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.7s;
 }
 
 @media (max-width: 767px) {
 
-
-    .film-container .card h2 {
+   .hover-cards-container .card h2 {
         font-size: 1em;
     }
 
@@ -130,7 +176,7 @@
 
         width: 35px;
         height: 35px;
-  
+
     }
 
     .card p {
@@ -154,11 +200,13 @@
 @media (min-width: 767px) {
 
     .card {
-        max-width: 225px;
+        max-width: 200px;
     }
-}@media (min-width: 1200px) {
+}
+
+@media (min-width: 1200px) {
 
     .card {
-        max-width: 300px;
+        max-width: 250px;
     }
 }
