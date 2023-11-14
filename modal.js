@@ -48,7 +48,7 @@ pageContent.addEventListener(touchendEvent, (event) => {
     const touchDuration = touchEndTime - touchStartTime;
 
     const filmId = event.target.getAttribute('data-id');
-    if (filmId && touchDuration > 500) { // Adjust the duration as needed
+    if (filmId && touchDuration > 200) { // Adjust the duration as needed
       openFilmModal(parseInt(filmId, 10));
     }
   }
