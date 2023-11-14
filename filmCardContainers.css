@@ -14,16 +14,15 @@
 .category-row {
     display: grid;
     grid-template-rows: 1fr 170px;
+    flex-wrap:wrap;
+    width:100vw;
 }
-
-
 
 .film-list {
     display: flex;
     flex-direction: row;
     gap: 0.2em;
     flex-wrap: wrap;
-    height: 115px;
 }
 
 
@@ -64,6 +63,9 @@
         grid-template-columns: 1fr;
         grid-template-rows: 50px 1fr;
         margin-top: 2em;
+
+            overflow: scroll;
+        
     }
 
     .hover-cards-container {

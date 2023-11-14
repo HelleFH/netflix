@@ -2,6 +2,7 @@ import service from "./data.service.js";
 import { createFilmCard } from "./createFilmCard.js";
 
 const filmsData = await service.getFilms();
+const isTouchDevice = "ontouchstart" in window;
 
 async function openFilmModal(filmId) {
   const selectedFilm = filmsData.find((film) => film.Id === filmId);
@@ -17,10 +18,12 @@ async function openFilmModal(filmId) {
     modal.appendChild(modalFilmCard);
 
     document.body.appendChild(modal);
-    const clickOrTouch = ("ontouchstart" in window) ? "touchend" : "click";
+
+    const touchstartEvent = isTouchDevice ? "touchstart" : "click";
+    const touchendEvent = isTouchDevice ? "touchend" : "click";
 
     const closeModalButton = modal.querySelector('.close-modal-button');
-    closeModalButton.addEventListener(clickOrTouch, () => {
+    closeModalButton.addEventListener(touchendEvent, () => {
       modal.removeChild(modalFilmCard);
       document.body.removeChild(modal);
     });
@@ -28,27 +31,25 @@ async function openFilmModal(filmId) {
 }
 
 const pageContent = document.getElementById('pageContent');
-const clickOrTouch = ("ontouchstart" in window) ? "touchend" : "click";
+const touchstartEvent = isTouchDevice ? "touchstart" : "click";
+const touchendEvent = isTouchDevice ? "touchend" : "click";
+
+let touchStartTime = 0;
+
 pageContent.addEventListener(touchstartEvent, (event) => {
   if (event.target.tagName === 'IMG') {
+    touchStartTime = new Date().getTime();
+  }
+});
+
+pageContent.addEventListener(touchendEvent, (event) => {
+  if (event.target.tagName === 'IMG') {
+    const touchEndTime = new Date().getTime();
+    const touchDuration = touchEndTime - touchStartTime;
+
     const filmId = event.target.getAttribute('data-id');
-
-    if (filmId) {
-      // Start a timer for long touch
-      const longTouchTimer = setTimeout(() => {
-        // Long touch action (open modal, for example)
-        openFilmModal(parseInt(filmId, 10));
-      }, 500); // Adjust the duration as needed
-
-      // Listen for touchend event to clear the timer
-      const touchEndHandler = () => {
-        clearTimeout(longTouchTimer);
-        // Remove the touchend event listener
-        document.removeEventListener(touchendEvent, touchEndHandler);
-      };
-
-      // Add the touchend event listener
-      document.addEventListener(touchendEvent, touchEndHandler);
+    if (filmId && touchDuration > 500) { // Adjust the duration as needed
+      openFilmModal(parseInt(filmId, 10));
     }
   }
 });
