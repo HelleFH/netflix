@@ -12,12 +12,12 @@
 }
 
 .film-list {
+    gap:0.5em;
     display: grid;
     grid-auto-rows: 170px;
     flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
-
 .individual-film-content {
     display: flex;
     gap: 3em;
@@ -25,6 +25,7 @@
     justify-content: center;
     margin-bottom: 5em;
 }
+.favorite-page-header {padding-top:2em;}
 
 .back-to-categories-button {
     position: sticky;
@@ -43,6 +44,9 @@
 }
 
 @media (max-width: 767px) {
+    .hover-cards-container .film-card-container:hover {height:120px}
+    .favorite-page-header {padding-top:0em;}
+
 
 
     .film-list-container {
@@ -64,8 +68,13 @@
         max-width: 100vw;
         overflow: scroll;
         flex-wrap: nowrap;
-
     }
+    .favorites-list { display: flex;
+        flex-direction: row;
+        gap: 1em;
+        max-width: 100vw;
+        overflow: visible;
+        flex-wrap: wrap;}
 
     .release-year-list {
         flex-wrap: wrap;

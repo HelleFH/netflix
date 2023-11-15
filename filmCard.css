@@ -1,6 +1,6 @@
 .hover-cards-container .film-card-container {
     cursor: pointer;
-    height: 113px;
+    height: 120px;
     position: relative;
     transition: ease-in 0.2s;
     z-index: 9996;
@@ -130,7 +130,7 @@
 @media (max-width: 767px) {
     .card {
         width: 175px;
-        height: auto;
+        height: fit-content;
     }
 
     .hover-cards-container .film-card-container {
@@ -184,18 +184,4 @@
     }
 
 
-}
-
-@media (min-width: 767px) {
-
-    .card {
-        max-width: 200px;
-    }
-}
-
-@media (min-width: 1200px) {
-
-    .card {
-        max-width: 250px;
-    }
 }
