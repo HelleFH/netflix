@@ -84,6 +84,31 @@
 }
 
 @media (max-width: 767px) {
+    #searchResultFilms .film-details {
+        display: flex !important;
+        visibility: visible;
+    }
+
+    #searchResultFilms .film-details p {
+        display: none;
+    }
+
+    #searchResultFilms .film-details div {
+        display: none;
+    }
+
+    #searchResultFilms .film-list-container {
+        height: fit-content;
+    }
+
+    #searchResultFilms .film-card-container {
+        margin-bottom: 3em;
+    }
+
+    #searchResultFilms .film-details {
+        background-color: transparent;
+        background: transparent;
+    }
     
 
 #searchResultFilms {
