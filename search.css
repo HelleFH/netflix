@@ -62,13 +62,14 @@
 
 
 #searchResultFilms {
+    padding-top:2.3em;
     display: none;
 }
-
 .hidden {
     display: none;
     transition: opacity 200ms, display 200ms;
 }
+
 
 @keyframes slide-in {
     0% {
@@ -83,6 +84,12 @@
 }
 
 @media (max-width: 767px) {
+    
+
+#searchResultFilms {
+    display: flex !important;
+}
+
     #searchButton {
         display: none;
     }

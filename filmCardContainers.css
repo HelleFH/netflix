@@ -63,6 +63,8 @@
     .release-year-list {        flex-wrap: wrap;        overflow: visible;
 
     }
+    #categoryPageFilms {overflow: visible;
+        flex-wrap: wrap;}
 
     #resultContainer .film-list {
         display: flex !important;

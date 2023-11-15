@@ -54,7 +54,7 @@ export function sortAndDisplayFilms(filmsData, selectedOption) {
     const categoryRows = document.querySelectorAll('.film-list-container');
     categoryRows.forEach(categoryHeader => {
       categoryHeader.style.display = 'none';
-      sortedFilmsContainer.style.display = 'grid';
+      sortedFilmsContainer.style.display = 'flex';
     });
 
     if (selectedOption === 'title-asc') {

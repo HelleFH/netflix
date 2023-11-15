@@ -130,7 +130,7 @@
 @media (max-width: 767px) {
     .card {
         width: 175px;
-        height:auto;
+        height: auto;
     }
 
     .hover-cards-container .film-card-container {
@@ -182,6 +182,8 @@
     .film-details {
         padding: 0;
     }
+
+
 }
 
 @media (min-width: 767px) {
