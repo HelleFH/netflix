@@ -19,6 +19,7 @@
     padding-top: 2em;
 
 }
+.modal .film-card-container {display:flex; justify-content: center;}
 
 .close-modal-button .fa-times-circle {
     color: rgb(255, 255, 255, 0.8);

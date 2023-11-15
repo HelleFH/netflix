@@ -1,8 +1,4 @@
 
-#individualPageFilms .info-button {
-    display: none;
-}
-
 #individualPageFilms .card {
     max-width: 95vw;
     margin: 0 auto;

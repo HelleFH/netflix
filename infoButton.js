@@ -1,4 +1,4 @@
-function handleFilmCardClick(event) {
+export function handleFilmCardClick(event) {
   const filmCard = event.target.closest('.film-card-container img');
 
   if (filmCard) {

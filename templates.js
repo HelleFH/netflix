@@ -16,9 +16,7 @@ export const filmCardTmpl = (film) => `
         <button class="favorite-button" data-id="${film.Id}" data-state="unfavorited">
           <i class="fas fa-plus fa-lg"></i>
         </button>
-        <button class="info-button">
-          <i class="fa-solid fa-circle-info" data-id="${film.Id}"></i>
-        </button>
+
       </div>
       <p class="film-description">${film.Description}</p>
     </div>

@@ -29,22 +29,22 @@
                 <div class="mobile-nav-container">
 
                     <a id="burgerIcon" href="#hamburgerIcon" onclick="gfgMenu()">
-                       <script> function gfgMenu() {
-                            const GFG = document.querySelector('.links');
-                          
-                            if (GFG.style.display === "none") {
-                                GFG.style.display = "block";
+                        <script> function gfgMenu() {
+                                const GFG = document.querySelector('.links');
+
+                                if (GFG.style.display === "none") {
+                                    GFG.style.display = "block";
+                                }
+                                else {
+                                    GFG.style.display = "none";
+                                }
                             }
-                            else {
-                                GFG.style.display = "none";
-                            }
-                          }
                         </script>
                         <i class="fa fa-bars fa-xl"></i>
 
                     </a>
 
-                    <div class="links">
+                    <div class="links" style="display:none;">
                         <a href="./index.html"> Home </a>
                         <a href="./myList.html"> My List </a>
                         <a>
@@ -55,12 +55,12 @@
                 </div>
 
                 <ul class="topnav">
-                    <a class="netflix-logo" href="/index.html" class="active"> <img src="./images/logo.png"></a>
-                    <a href="index.html">Start</a>
+                    <a class="netflix-logo" href="./index.html" class="active"> <img src="./images/logo.png"></a>
+                    <a href="./index.html">Start</a>
                     <a href="#">Films</a>
                     <a href="./myList.html">My List</a>
                 </ul>
-                <a class="netflix-logo-mobile" href="/index.html" class="active"> <img src="./images/logo.png"></a>
+                <a class="netflix-logo-mobile" href="./index.html" class="active"> <img src="./images/logo.png"></a>
 
                 <div class="search-container">
                     <div class="searchButton" id="searchButton">
@@ -78,14 +78,15 @@
         <main>
             <div id="pageContent">
 
+             
                 <div class="result-container" id="resultContainer">
-                    <div id="searchResultFilms" class="">
+                    <div id="searchResultFilms" class=" film-list hover-cards-container">
                     </div>
                 </div>
                 <div id="searchableContent">
 
                     <h3 class="favorite-page-header">Your List</h3>
-                    <div id="favoritesPageFilms" class=" hover-cards-container"></div>
+                    <div id="favoritesPageFilms" class=" hover-cards-container film-list"></div>
 
                     <div class="refresh-button" onClick="window.location.reload();">
                         <p>Refresh List</p>
@@ -100,7 +101,7 @@
 
         <script type="module" src="./modal.js"></script>
         
-        <script src="./infoButton.js"></script>
+        <script type="module" src="./infoButton.js"></script>
         
         <script src="./filmDescriptionMobile.js"></script>
         

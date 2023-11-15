@@ -1,14 +1,16 @@
-.hover-cards-container .card {
-    display: grid;
+.hover-cards-container .film-card-container {
     cursor: pointer;
-    width: 175px;
+    height: 113px;
     position: relative;
     transition: ease-in 0.2s;
     z-index: 9996;
     overflow: hidden;
-
 }
 
+.hover-cards-container .film-card-container:hover {
+    overflow: visible;
+    height: fit-content;
+}
 
 .card img {
     border-radius: 4px;
@@ -26,7 +28,7 @@
 
 .film-details {
     display: flex;
-    flex-direction: column;                                          
+    flex-direction: column;
     padding: 0 0.6em 0.6em 0.6em;
     background-color: #212121;
     border-radius: 0 0 4px 4px;
@@ -55,11 +57,6 @@
     background-color: #212121;
 }
 
-.fa-info-circle::before {
-    display: block;
-    border-radius: 100%;
-
-}
 
 .play-button {
     background-color: white !important;
@@ -73,21 +70,6 @@
 
 }
 
-.info-button {
-    margin-left: auto;
-    width: fit-content;
-    padding: 0;
-    height: fit-content;
-    border-radius: 10px;
-    border: none;
-    background-color: transparent;
-
-}
-
-.fa-circle-info {
-    color: #fff;
-
-}
 
 .hover-cards-container .card h2 {
     font-size: 0.7em;
@@ -106,10 +88,6 @@
     transition-delay: 0.7s;
 }
 
-.card:hover {
-    overflow: visible;
-    height: fit-content
-}
 
 .film-card-container {
     transition: transform 0.3s ease-out;
@@ -143,7 +121,7 @@
     transform: none !important;
 }
 
-.hover-cards-container .film-card-container:not(.film-details).hovered .film-details {
+.hover-cards-container .film-card-container.hovered .film-details {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.7s;
@@ -152,6 +130,11 @@
 @media (max-width: 767px) {
     .card {
         width: 175px;
+        height:auto;
+    }
+
+    .hover-cards-container .film-card-container {
+        overflow: visible;
     }
 
     .hover-cards-container .film-card-container.hovered {
@@ -162,10 +145,6 @@
 
     .hover-cards-container .card h2 {
         font-size: 1em;
-    }
-
-    .info-button {
-        display: none;
     }
 
     .card {

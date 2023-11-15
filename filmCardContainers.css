@@ -6,34 +6,15 @@
     width: 100%;
     padding-bottom: 2.5em;
 }
-
 #categoriesHeader {
     line-height: 1em;
 }
 
-.category-row {
-    display: grid;
-    grid-template-rows: 1fr 170px;
-    flex-wrap:wrap;
-    width:100vw;
-}
-
 .film-list {
-    display: flex;
-    flex-direction: row;
-    gap: 0.2em;
-    flex-wrap: wrap;
-}
-
-
-.hover-cards-container:not(#categorySortedFilms) {
-    padding-top: 1.5em;
     display: grid;
-    grid-auto-rows: 200px;
-    width: 100%;
+    grid-auto-rows: 170px;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.2em;
-
 }
 
 .individual-film-content {
@@ -50,48 +31,48 @@
     top: 80px;
 }
 
-
 .refresh-button {
     cursor: pointer;
     place-self: end;
     font-weight: 600;
 }
-
 @media (max-width: 767px) {
 
 
-    .category-row {
-        grid-template-columns: 1fr;
-        grid-template-rows: 50px 1fr;
-        margin-top: 2em;
-            overflow: scroll;
-        
+    .film-list-container {
+        display: flex;
+        flex-direction: column;
+        height: 170px;
+
     }
-    #categoryPageFilms {    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    grid-auto-rows: 120px;
-    margin-top: 2em;
-    overflow: scroll;}
- .hover-cards-container {
-        padding-top: 1.5em;
+
+    .film-list-container h2 {
+        margin-left: 0.2em;
+        padding-bottom: 0.5em;
+    }
+
+    .film-list {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        max-width: 100vw;
+        overflow: scroll;
+        flex-wrap: nowrap;
+
+    }
+    .release-year-list {        flex-wrap: wrap;        overflow: visible;
+
+    }
+
+    #resultContainer .film-list {
         display: flex !important;
         flex-direction: row;
         flex-wrap: wrap;
-    }
-
-    .category-row h2 {
-        grid-row: 1;
-        margin: auto;
-        margin-left: 0.2em;
-    }
-
-    .category-row .film-list {
-        grid-row: 2;
-        flex-wrap: nowrap;
+        margin:0 auto;
     }
 
     .categories-header-container {
-        padding: 0;
+        padding-bottom: 2em;
     }
 
     .categories-header {
@@ -99,7 +80,8 @@
         display: none;
     }
 
-    .result-container h2 {
-        display: none;
+    .result-container {
+        padding-top: 1em;
     }
+
 }

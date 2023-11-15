@@ -1,20 +1,22 @@
 import { filmCardTmpl } from "./templates.js";
-
+import { handleFilmCardClick } from "./infoButton.js";
 // Load favorite film IDs once
 const favoriteFilmIDs = loadFavoriteFilmIDs();
 
-export function loadFavoriteFilmIDs() {
+function loadFavoriteFilmIDs() {
   const storedIDs = localStorage.getItem('favoriteFilmIDs');
   return storedIDs ? new Set(JSON.parse(storedIDs)) : new Set();
 }
 
 export function createFilmCard(film) {
+
   const filmCard = document.createElement('div');
   filmCard.classList.add ('film-card-container')
   filmCard.innerHTML = filmCardTmpl(film);
 
   const favoriteButton = filmCard.querySelector('.favorite-button');
   const filmId = film.Id;
+
 
   if (favoriteFilmIDs.has(filmId)) {
     favoriteButton.setAttribute('data-state', 'favorited');
@@ -40,6 +42,5 @@ export function createFilmCard(film) {
 
     localStorage.setItem('favoriteFilmIDs', JSON.stringify(Array.from(favoriteFilmIDs)));
   });
-
   return filmCard;
 }

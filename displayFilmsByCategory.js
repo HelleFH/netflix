@@ -40,7 +40,7 @@ export function displayFilmsByCategory(filmsData) {
       });
 
       const filmRow = document.createElement('div');
-      filmRow.classList.add('category-row');
+      filmRow.classList.add('film-list-container');
       filmRow.appendChild(categoryHeader);
       filmRow.appendChild(filmList);
       categoriesContainer.appendChild(filmRow);
@@ -48,11 +48,10 @@ export function displayFilmsByCategory(filmsData) {
   }
 }
 
-
 export function sortAndDisplayFilms(filmsData, selectedOption) {
   try {
     const sortedFilmsContainer = document.getElementById('sortedFilms');
-    const categoryRows = document.querySelectorAll('.category-row');
+    const categoryRows = document.querySelectorAll('.film-list-container');
     categoryRows.forEach(categoryHeader => {
       categoryHeader.style.display = 'none';
       sortedFilmsContainer.style.display = 'grid';
@@ -64,21 +63,71 @@ export function sortAndDisplayFilms(filmsData, selectedOption) {
       filmsData.sort((a, b) => b.Title.localeCompare(a.Title, 'sv'));
     } else if (selectedOption === 'release-date') {
       filmsData.sort((a, b) => a.ReleaseYear - b.ReleaseYear);
-    } else if (selectedOption === 'genres') {
+      
+      // Display films in a simple list without letters
+      sortedFilmsContainer.innerHTML = '';
+      const filmList = document.createElement('div');
+      filmList.classList.add('film-list');
+      filmList.classList.add('release-year-list');
 
+
+      filmsData.forEach(film => {
+        const filmCard = createFilmCard(film);
+        filmList.appendChild(filmCard);
+      });
+
+      sortedFilmsContainer.appendChild(filmList);
+      return; // Exit the function after displaying the list
+    } else if (selectedOption === 'genres') {
       window.location.reload();
-      return; 
+      return;
     }
 
-    sortedFilmsContainer.innerHTML = ''; 
-    filmsData.forEach(film => {
-      const filmCard = createFilmCard(film);
-      sortedFilmsContainer.appendChild(filmCard);
-    });
+    // Display films grouped by the first letter of the title
+    sortedFilmsContainer.innerHTML = '';
+
+    const filmsByLetter = groupFilmsByFirstLetter(filmsData);
+
+    for (const letter in filmsByLetter) {
+      if (filmsByLetter.hasOwnProperty(letter)) {
+        const filmsInLetter = filmsByLetter[letter];
+
+        const letterHeader = document.createElement('h2');
+        letterHeader.textContent = letter.toUpperCase();
+        const filmList = document.createElement('div');
+        filmList.classList.add('film-list');
+
+        filmsInLetter.forEach(film => {
+          const filmCard = createFilmCard(film);
+          filmList.appendChild(filmCard);
+        });
+
+        const letterRow = document.createElement('div');
+        letterRow.appendChild(letterHeader);
+        letterRow.appendChild(filmList);
+        sortedFilmsContainer.appendChild(letterRow);
+      }
+    }
   } catch (error) {
     console.error('Error sorting and displaying films:', error);
   }
 }
+function groupFilmsByFirstLetter(films) {
+  const filmsByLetter = {};
+
+  films.forEach((film) => {
+    const firstLetter = film.Title[0].toLowerCase();
+
+    if (!filmsByLetter[firstLetter]) {
+      filmsByLetter[firstLetter] = [];
+    }
+
+    filmsByLetter[firstLetter].push(film);
+  });
+
+  return filmsByLetter;
+}
+
 export function initializeDropdowns() {
   const categoryDropdown = document.getElementById('categoryDropdown');
   const sortDropdown = document.getElementById('sortDropdown');
