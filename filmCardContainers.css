@@ -6,6 +6,7 @@
     width: 100%;
     padding-bottom: 2.5em;
 }
+
 #categoriesHeader {
     line-height: 1em;
 }
@@ -36,6 +37,11 @@
     place-self: end;
     font-weight: 600;
 }
+
+#sortedFilms {
+    flex-direction: column;
+}
+
 @media (max-width: 767px) {
 
 
@@ -60,17 +66,23 @@
         flex-wrap: nowrap;
 
     }
-    .release-year-list {        flex-wrap: wrap;        overflow: visible;
 
+    .release-year-list {
+        flex-wrap: wrap;
+        overflow: visible;
     }
-    #categoryPageFilms {overflow: visible;
-        flex-wrap: wrap;}
+
+
+    #categoryPageFilms {
+        overflow: visible;
+        flex-wrap: wrap;
+    }
 
     #resultContainer .film-list {
         display: flex !important;
         flex-direction: row;
         flex-wrap: wrap;
-        margin:0 auto;
+        margin: 0 auto;
     }
 
     .categories-header-container {
